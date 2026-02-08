@@ -48,6 +48,7 @@
     ripgrep
     unzip
     xclip
+    xwallpaper
     yazi
   ];
 }
