@@ -11,6 +11,7 @@
       ll = "eza -l --icons";
       la = "eza -a --icons";
       lt = "eza -T --icons";
+      y = "yazi";
     };
   };
 }
