@@ -5,6 +5,9 @@
     enable = true;
     enableCompletion = true;
     initExtra = ''
+      if [ -n "$DISPLAY" ] || [ -n "$WAYLAND_DISPLAY" ]; then
+        eval "$(${pkgs.starship}/bin/starship init bash)"
+      fi
       source ${pkgs.blesh}/share/blesh/ble.sh
     '';
     shellAliases = {
