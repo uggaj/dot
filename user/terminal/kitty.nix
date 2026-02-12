@@ -8,7 +8,7 @@
       enabled_layouts = "tall,*";
       window_padding_width = 2;
 
-      font_family = "GohuFont 14 Nerd Font";
+      font_family = "SpaceMono Nerd Font";
       font_size = 11;
       disable_ligatures = "always";
       
