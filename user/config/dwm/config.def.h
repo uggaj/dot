@@ -14,7 +14,7 @@ static const char *fonts[]          = { "SpaceMono Nerd Font:size=10" };
 static const char dmenufont[]       = "SpaceMono Nerd Font:size=10";
 static const char col_bg[]          = "#ffffea";
 static const char col_fg[]          = "#000000";
-static const char col_border[]      = "#eaffff";
+static const char col_border[]      = "#aeeeee";
 static const char col_sel_bg[]      = "#eaffff";
 static const char col_sel_fg[]      = "#000000";
 static const char col_bar_bg[]      = "#eaffff";
