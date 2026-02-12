@@ -19,6 +19,15 @@
           hash = "sha256-V5yMUl2LO8GE094kJCFc5HG0LvpVEZjjlV2egcZJrg4=";
         };
       })
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "dookie.nvim";
+        src = pkgs.fetchFromGitHub {
+          owner = "pebeto";
+          repo = "dookie.nvim";
+          rev = "main";
+          hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        };
+      })
       direnv-vim
       nvim-lspconfig
       nvim-cmp
