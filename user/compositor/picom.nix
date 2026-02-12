@@ -4,7 +4,7 @@
   services.picom = {
     enable = true;
     backend = "xrender";
-    vsync = false;
+    vSync = false;
 
     extraConfig = ''
       use-damage = true;
