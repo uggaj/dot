@@ -25,24 +25,23 @@
       selection_background = "#eaffff";
       selection_foreground = "#000000";
       
-      color0 = "#000000";  
-      color1 = "#aa0000";  
-      color2 = "#00aa00";  
-      color3 = "#aa5500";  
-      color4 = "#0000aa";  
-      color5 = "#aa00aa";  
-      color6 = "#00aaaa";  
-      color7 = "#cccccc";  
-      
-      color8  = "#444444";  
-      color9  = "#ff4444";  
-      color10 = "#44ff44";  
-      color11 = "#ffaa00";  
-      color12 = "#4444ff";  
-      color13 = "#ff44ff";  
-      color14 = "#44ffff";  
-      color15 = "#ffffff"; 
-      
+      color0 = "#000000";
+      color1 = "#000000";
+      color2 = "#000000";
+      color3 = "#000000";
+      color4 = "#000000";
+      color5 = "#000000";
+      color6 = "#000000";
+      color7 = "#000000";
+      color8 = "#000000";
+      color9 = "#000000";
+      color10 = "#000000";
+      color11 = "#000000";
+      color12 = "#000000";
+      color13 = "#000000";
+      color14 = "#000000";
+      color15 = "#000000"; 
+
       active_tab_foreground = "#000000";
       active_tab_background = "#eaffff";
       inactive_tab_foreground = "#666666";

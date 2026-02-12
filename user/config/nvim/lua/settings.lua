@@ -327,6 +327,18 @@ local colors = {
     extra   = { fg = '#000000', bg = '#f5f5dc' },
 }
 
+--[[
+local colors = {
+    normal  = { fg = '#ffffff', bg = '#080808', bold = true },
+    insert  = { fg = '#1d2021', bg = '#1bfd9c', bold = true },
+    visual  = { fg = '#1d2021', bg = '#f1f1f1', bold = true },
+    command = { fg = '#1d2021', bg = '#4fcdf3', bold = true },
+    replace = { fg = '#1d2021', bg = '#fb4934', bold = true },
+    string  = { fg = '#ffffff', bg = '#191919' },
+    extra   = { fg = '#ffffff', bg = '#191919' },
+}
+]]
+
 local function set_highlights()
     vim.api.nvim_set_hl(0, 'StatusLineNormal', colors.normal)
     vim.api.nvim_set_hl(0, 'StatusLineInsert', colors.insert)
