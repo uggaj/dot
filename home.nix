@@ -46,6 +46,7 @@
     fzf
     ncdu
     pavucontrol
+    qalculate-gtk
     ripgrep
     unzip
     xclip
