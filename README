@@ -1,4 +1,4 @@
-dots
+vdots
 ====
 This repository contains my personal NixOS configuration and dotfiles.
 The goal is a minimal, reproducible, and developer-focused Linux setup.
