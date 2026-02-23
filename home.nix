@@ -38,7 +38,6 @@
   home.packages = with pkgs; [
     aria2
     bat
-    brave
     btop
     eza
     fd
