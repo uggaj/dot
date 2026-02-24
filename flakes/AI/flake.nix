@@ -23,11 +23,16 @@
             python312Packages.black
             python312Packages.isort
             ruff
+             
+            # Libraries needed for dynamically linked pip wheels
+            stdenv.cc.cc.lib
+            zlib
           ];
 
           shellHook = ''
             echo "=== Python AI/ML Development ==="
             python --version
+            export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.zlib}/lib:$LD_LIBRARY_PATH"
           '';
         };
       }
