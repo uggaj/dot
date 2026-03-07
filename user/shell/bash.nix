@@ -11,8 +11,7 @@
       source ${pkgs.blesh}/share/blesh/ble.sh
     '';
     shellAliases = {
-      ll = "eza -l --icons";
-      la = "eza -a --icons";
+      ll = "eza -la --icons";
       lt = "eza -T --icons";
       y = "yazi";
     };
