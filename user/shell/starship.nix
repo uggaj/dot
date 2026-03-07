@@ -18,7 +18,6 @@
         "$character"
         "$status"
         "$sudo"
-        "$line_break"
         "$env_var"
         "$username"
         "$hostname"
@@ -109,7 +108,7 @@
       ];
 
       # Palettes
-      palette = "light";
+      palette = "dark";
       palettes.light = {
         success_fg = "green";
         error_fg = "red";
@@ -123,7 +122,7 @@
         bg_1 = "darkblack";
       };
 
-      line_break.disabled = true;
+      line_break.disabled = false;
 
       os = {
         disabled = false;
@@ -147,7 +146,7 @@
       battery = {
         disabled = false;
         full_symbol = "󰂃 ";
-        charging_symbol = "⚡️ ";
+        charging_symbol = "󰂉 ";
         discharging_symbol = "󰁽 ";
         empty_symbol = "󰂎 ";
         format = "[ $symbol$percentage ]($style)";
