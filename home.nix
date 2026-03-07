@@ -50,6 +50,7 @@
     ncdu
     nixd
     nixfmt
+    nsxiv
     pavucontrol
     qalculate-gtk
     ripgrep
