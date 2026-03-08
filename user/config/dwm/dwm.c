@@ -584,7 +584,7 @@ configurenotify(XEvent *e)
 				for (c = m->clients; c; c = c->next)
 					if (c->isfullscreen)
 						resizeclient(c, m->mx, m->my, m->mw, m->mh);
-				XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, m->ww, bh + barheight);
+				XMoveResizeWindow(dpy, m->barwin, floatbar ? barpadh : m->wx, m->by, floatbar ? m->ww - 2 * barpadh : m->ww, bh + barheight);
 			}
 			focus(NULL);
 			arrange(NULL);
@@ -1852,7 +1852,10 @@ togglebar(const Arg *arg)
 {
 	selmon->showbar = !selmon->showbar;
 	updatebarpos(selmon);
-	XMoveResizeWindow(dpy, selmon->barwin, selmon->wx, selmon->by, selmon->ww, bh + barheight);
+  if (floatbar)
+	  XMoveResizeWindow(dpy, selmon->barwin, barpadh, selmon->by, selmon->ww - 2 * barpadh, bh + barheight);
+  else
+    XMoveResizeWindow(dpy, selmon->barwin, selmon->wx, selmon->by, selmon->ww, bh + barheight);
 	arrange(selmon);
 }
 
@@ -1985,9 +1988,15 @@ updatebarpos(Monitor *m)
 {
     if (floatbar) {
 		/* IF YOU ARE USING GAPS, PLEASE ADD BARBORDER TO THE END */
+      m->wy = m->my;
+      m->wh = m->mh;
+      if (m->showbar) {
         m->wy = m->my + (barheight + bh + barpadv * 2 + barborder); 	/* Start window area below the bar */
         m->wh = m->mh - (barheight + bh + barpadv * 2 + barborder); 	/* Reduce window height to account for bar */
         m->by = barpadv; 												/* Position bar at vertical padding from top */
+      } else {
+        m->by = -bh - barheight;
+      }
     } else {
         m->wy = m->my;
         m->wh = m->mh;
@@ -1996,7 +2005,7 @@ updatebarpos(Monitor *m)
             m->by = m->topbar ? m->wy : m->wy + m->wh;
             m->wy = m->topbar ? m->wy + bh : m->wy;
         } else
-            m->by = -bh + barheight;
+            m->by = -bh - barheight;
     }
 }
 
