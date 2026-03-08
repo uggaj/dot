@@ -30,7 +30,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "SpaceMono Nerd Font";
+      name = "lilex Nerd Font";
       size = 10;
     };
   };
