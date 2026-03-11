@@ -55,6 +55,7 @@
     qalculate-gtk
     ripgrep
     shfmt
+    statix
     stylua
     tree-sitter
     unzip
