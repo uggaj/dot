@@ -54,11 +54,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class               instance    title       tags mask     isfloating   monitor */	
+	/* class               instance    title       tags mask     isfloating   monitor */
 	{ "kitty",                 NULL,   NULL,       1 << 0,       0,           -1 },
 	{ ".virt-manager-wrapped", NULL,   NULL,       1 << 1,       0,           -1 },
 	{ "pavucontrol",           NULL,   NULL,       0,            1,           -1 },
 	{ "Qalculate-gtk",         NULL,   NULL,       0,            1,           -1 },
+	{ "Arandr",                NULL,   NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
