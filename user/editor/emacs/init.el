@@ -77,43 +77,19 @@
   :config
   (treemacs-load-theme "nerd-icons"))
 
-(use-package lsp-mode
-  :init
-  (setq lsp-keymap-prefix "C-c l")
+(use-package eglot
   :hook ((rust-mode
           c-mode
           c++-mode
           python-mode
-          nix-mode) . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration)
+          nix-mode
+          asm-mode) . eglot-ensure)
   :config
-  (setq lsp-idle-delay 0.2
-        lsp-log-io nil
-        lsp-completion-provider :capf)
-  :commands (lsp lsp-deferred))
+  (setq eglot-autoshutdown t))
 
-(use-package lsp-ui
-  :after lsp-mode
-  :config
-  (setq lsp-ui-sideline-enable t
-        lsp-ui-sideline-show-diagnostics t
-        lsp-ui-sideline-show-hover nil
-        lsp-ui-doc-enable t
-        lsp-ui-doc-position 'at-point
-        lsp-ui-peek-enable t))
-
-(use-package lsp-ivy
-  :after lsp-mode
-  :commands lsp-ivy-workspace-symbol)
-
-(use-package lsp-treemacs
-  :after (lsp-mode treemacs)
-  :commands lsp-treemacs-errors-list)
-
-(use-package dap-mode
-  :after lsp-mode
-  :config
-  (dap-auto-configure-mode 1))
+(add-hook 'eglot-managed-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
 
 (use-package company
   :hook (prog-mode . company-mode)
@@ -130,7 +106,6 @@
   :commands magit-status
   :bind ("C-x g" . magit-status))
 
-;;; Editor enhancements
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
@@ -143,20 +118,14 @@
 (use-package ws-butler
   :hook (prog-mode . ws-butler-mode))
 
-(add-hook 'before-save-hook
-          (lambda ()
-            (when (bound-and-true-p lsp-mode)
-              (lsp-format-buffer))))
-
 (global-set-key (kbd "C-x b")         'ivy-switch-buffer)
 (global-set-key (kbd "C-x C-b")       'ibuffer)
 (global-set-key (kbd "C-c r")         'counsel-recentf)
 (global-set-key (kbd "M-/")           'hippie-expand)
-(global-set-key (kbd "C-c d")         'lsp-find-definition)
-(global-set-key (kbd "C-c i")         'lsp-find-references)
-(global-set-key (kbd "C-c n")         'lsp-rename)
-(global-set-key (kbd "C-c a")         'lsp-execute-code-action)
-(global-set-key (kbd "C-c e")         'lsp-treemacs-errors-list)
+(global-set-key (kbd "C-c d")         'xref-find-definitions)
+(global-set-key (kbd "C-c i")         'xref-find-references)
+(global-set-key (kbd "C-c n")         'eglot-rename)
+(global-set-key (kbd "C-c a")         'eglot-code-actions)
 (global-set-key (kbd "C-c m")         'magit-status)
 (global-set-key (kbd "C-x C-<left>")  'windmove-left)
 (global-set-key (kbd "C-x C-<right>") 'windmove-right)

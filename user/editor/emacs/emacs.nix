@@ -21,12 +21,6 @@
 
       treemacs
       treemacs-nerd-icons
-      lsp-treemacs
-
-      lsp-mode
-      lsp-ui
-      lsp-ivy
-      dap-mode
 
       magit
 
