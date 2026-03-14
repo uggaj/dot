@@ -14,11 +14,18 @@
 (add-to-list 'default-frame-alist '(font . "SpaceMono Nerd Font-10"))
 (setq-default line-spacing 0.12)
 
+(load-theme 'modus-vivendi t)
+
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 (use-package dashboard
   :init
   (setq initial-buffer-choice 'dashboard-open
+        dashboard-center-content t        
+        dashboard-set-heading-icons t    
+        dashboard-set-file-icons t        
+        dashboard-banner-logo-title "Welcome to the Church of Emacs"
+        dashboard-startup-banner "~/.config/emacs/images/stallman.png"
         dashboard-items '((recents . 5)
                           (bookmarks . 5)))
   :config
