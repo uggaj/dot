@@ -1,5 +1,4 @@
 (setq package-enable-at-startup nil)
-
 (eval-when-compile
   (require 'use-package))
 
@@ -7,6 +6,11 @@
 (global-auto-revert-mode 1)
 (delete-selection-mode 1)
 (electric-pair-mode 1)
+(setq confirm-kill-emacs 'y-or-n-p)
+(setq use-short-answers t)
+
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 (set-face-attribute 'default nil :font "SpaceMono Nerd Font" :height 100)
 (set-face-attribute 'fixed-pitch nil :font "SpaceMono Nerd Font" :height 100)
@@ -21,9 +25,9 @@
 (use-package dashboard
   :init
   (setq initial-buffer-choice 'dashboard-open
-        dashboard-center-content t        
-        dashboard-set-heading-icons t    
-        dashboard-set-file-icons t        
+        dashboard-center-content t
+        dashboard-set-heading-icons t
+        dashboard-set-file-icons t
         dashboard-banner-logo-title "Welcome to the Church of Emacs"
         dashboard-startup-banner "~/.config/emacs/images/stallman.png"
         dashboard-items '((recents . 5)
@@ -38,6 +42,12 @@
   (doom-modeline-height 25))
 
 (use-package nerd-icons)
+
+(use-package which-key
+  :init
+  (which-key-mode)
+  :config
+  (setq which-key-idle-delay 0.3))
 
 (use-package ivy
   :init
@@ -57,7 +67,7 @@
   (ivy-rich-mode 1))
 
 (use-package treemacs
-  :bind (("C-c t" . treemacs))
+  :bind ("C-c t" . treemacs)
   :config
   (setq treemacs-width 35
         treemacs-is-never-other-window t))
@@ -67,49 +77,65 @@
   :config
   (treemacs-load-theme "nerd-icons"))
 
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook ((rust-mode
+          c-mode
+          c++-mode
+          python-mode
+          nix-mode) . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration)
+  :config
+  (setq lsp-idle-delay 0.2
+        lsp-log-io nil
+        lsp-completion-provider :capf)
+  :commands (lsp lsp-deferred))
+
+(use-package lsp-ui
+  :after lsp-mode
+  :config
+  (setq lsp-ui-sideline-enable t
+        lsp-ui-sideline-show-diagnostics t
+        lsp-ui-sideline-show-hover nil
+        lsp-ui-doc-enable t
+        lsp-ui-doc-position 'at-point
+        lsp-ui-peek-enable t))
+
+(use-package lsp-ivy
+  :after lsp-mode
+  :commands lsp-ivy-workspace-symbol)
+
+(use-package lsp-treemacs
+  :after (lsp-mode treemacs)
+  :commands lsp-treemacs-errors-list)
+
+(use-package dap-mode
+  :after lsp-mode
+  :config
+  (dap-auto-configure-mode 1))
+
+(use-package company
+  :hook (prog-mode . company-mode)
+  :config
+  (setq company-idle-delay 0.2
+        company-minimum-prefix-length 1
+        company-tooltip-align-annotations t))
+
+(use-package company-box
+  :after company
+  :hook (company-mode . company-box-mode))
+
 (use-package magit
   :commands magit-status
-  :bind (("C-x g" . magit-status)))
+  :bind ("C-x g" . magit-status))
 
-(use-package which-key
-  :init
-  (which-key-mode)
-  :config
-  (setq which-key-idle-delay 0.3))
-
+;;; Editor enhancements
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
-
-(use-package eglot
-  :hook ((rust-mode
-          c-mode
-          c++-mode
-          python-mode
-          nix-mode
-          asm-mode) . eglot-ensure))
-
-(add-hook 'eglot-managed-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
-
-(global-set-key (kbd "C-x b") 'ivy-switch-buffer)       
-(global-set-key (kbd "C-x C-b") 'ibuffer)     
-(global-set-key (kbd "C-c r") 'counsel-recentf)      
-(global-set-key (kbd "M-/") 'hippie-expand)      
-(global-set-key (kbd "C-c d") 'xref-find-definitions) 
-(global-set-key (kbd "C-c i") 'xref-find-references)             
-(global-set-key (kbd "C-c m") 'magit-status)    
-
-(global-set-key (kbd "C-x C-<left>")  'windmove-left)
-(global-set-key (kbd "C-x C-<right>") 'windmove-right)
-(global-set-key (kbd "C-x <up>")    'windmove-up)
-(global-set-key (kbd "C-x <down>")  'windmove-down)
-
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
 
 (use-package aggressive-indent
   :hook (prog-mode . aggressive-indent-mode))
@@ -117,5 +143,31 @@
 (use-package ws-butler
   :hook (prog-mode . ws-butler-mode))
 
-(setq confirm-kill-emacs 'y-or-n-p)
-(fset 'yes-or-no-p 'y-or-n-p)
+(add-hook 'before-save-hook
+          (lambda ()
+            (when (bound-and-true-p lsp-mode)
+              (lsp-format-buffer))))
+
+(global-set-key (kbd "C-x b")         'ivy-switch-buffer)
+(global-set-key (kbd "C-x C-b")       'ibuffer)
+(global-set-key (kbd "C-c r")         'counsel-recentf)
+(global-set-key (kbd "M-/")           'hippie-expand)
+(global-set-key (kbd "C-c d")         'lsp-find-definition)
+(global-set-key (kbd "C-c i")         'lsp-find-references)
+(global-set-key (kbd "C-c n")         'lsp-rename)
+(global-set-key (kbd "C-c a")         'lsp-execute-code-action)
+(global-set-key (kbd "C-c e")         'lsp-treemacs-errors-list)
+(global-set-key (kbd "C-c m")         'magit-status)
+(global-set-key (kbd "C-x C-<left>")  'windmove-left)
+(global-set-key (kbd "C-x C-<right>") 'windmove-right)
+(global-set-key (kbd "C-x <up>")      'windmove-up)
+(global-set-key (kbd "C-x <down>")    'windmove-down)
+
+(setq make-backup-files t)
+(setq backup-directory-alist '((".*" . "~/.cache/emacs/backups/")))
+(setq auto-save-default t)
+(setq auto-save-file-name-transforms '((".*" "~/.cache/emacs/auto-saves/" t)))
+(setq lock-file-name-transforms '((".*" "~/.cache/emacs/locks/" t)))
+(setq custom-file "~/.cache/emacs/custom.el")
+(when (file-exists-p custom-file)
+  (load custom-file))
