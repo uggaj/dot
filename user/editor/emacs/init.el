@@ -8,9 +8,8 @@
 (delete-selection-mode 1)
 (electric-pair-mode 1)
 
-(set-face-attribute 'default nil
-                    :font "SpaceMono Nerd Font"
-                    :height 100)
+(dolist (face '(default menu mode-line mode-line-inactive tooltip))
+  (set-face-attribute face nil :font "SpaceMono Nerd Font" :height 100))
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
