@@ -30,6 +30,7 @@
             ccache
 	    ncurses
             libx11
+	    libxft
 
             valgrind
             clang-tools
