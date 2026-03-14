@@ -97,7 +97,6 @@
     git
     lm_sensors
     tlp
-    vim
     wget
   ];
 
