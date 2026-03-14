@@ -91,6 +91,14 @@
           (lambda ()
             (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
 
+(use-package flymake
+  :hook (prog-mode . flymake-mode)
+  :config
+  (setq flymake-fringe-indicator-position 'right-fringe))
+
+(setq eldoc-echo-area-use-multiline-p t)
+(setq eldoc-idle-delay 0.1)
+
 (use-package company
   :hook (prog-mode . company-mode)
   :config
@@ -134,6 +142,10 @@
 (global-set-key (kbd "C-x C-<right>") 'windmove-right)
 (global-set-key (kbd "C-x <up>")      'windmove-up)
 (global-set-key (kbd "C-x <down>")    'windmove-down)
+(global-set-key (kbd "C-c f")  'flymake-show-buffer-diagnostics)
+(global-set-key (kbd "C-c F")  'flymake-show-project-diagnostics)
+(global-set-key (kbd "M-n")    'flymake-goto-next-error)
+(global-set-key (kbd "M-p")    'flymake-goto-prev-error)
 
 (setq make-backup-files t)
 (setq backup-directory-alist '((".*" . "~/.cache/emacs/backups/")))

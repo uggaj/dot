@@ -36,6 +36,11 @@
     ];
   };
 
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+  };
+
   fonts.fontconfig.enable = true;
 
   home.file.".config/emacs/init.el".source = ./init.el;

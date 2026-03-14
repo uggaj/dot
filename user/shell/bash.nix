@@ -17,6 +17,7 @@
       ll = "eza -la --icons";
       lt = "eza -T --icons";
       y = "yazi";
+      em = "emacsclient -c";
     };
   };
 }
