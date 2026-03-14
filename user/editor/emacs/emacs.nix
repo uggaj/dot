@@ -8,6 +8,8 @@
     extraPackages = epkgs: with epkgs; [
       use-package
 
+      envrc
+       
       nerd-icons
       dashboard
       doom-modeline

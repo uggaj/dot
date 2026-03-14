@@ -118,6 +118,9 @@
 (use-package ws-butler
   :hook (prog-mode . ws-butler-mode))
 
+(use-package envrc
+  :hook (after-init . envrc-global-mode))
+
 (global-set-key (kbd "C-x b")         'ivy-switch-buffer)
 (global-set-key (kbd "C-x C-b")       'ibuffer)
 (global-set-key (kbd "C-c r")         'counsel-recentf)
