@@ -13,6 +13,7 @@
       nerd-icons
       dashboard
       doom-modeline
+      doom-themes
       which-key
 
       ivy

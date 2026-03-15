@@ -21,7 +21,14 @@
 (add-to-list 'default-frame-alist '(font . "SpaceMono Nerd Font-10"))
 (setq-default line-spacing 0.12)
 
-(load-theme 'modus-vivendi t)
+(use-package doom-themes
+  :custom
+  (doom-themes-enable-bold t)
+  (doom-themes-enable-italic t)
+  :config
+  (load-theme 'doom-challenger-deep t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config))
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
