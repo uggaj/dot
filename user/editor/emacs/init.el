@@ -6,6 +6,8 @@
 (global-auto-revert-mode 1)
 (delete-selection-mode 1)
 (electric-pair-mode 1)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 (setq confirm-kill-emacs 'y-or-n-p)
 (setq use-short-answers t)
 
@@ -28,8 +30,8 @@
         dashboard-center-content t
         dashboard-set-heading-icons t
         dashboard-set-file-icons t
-        dashboard-banner-logo-title "Welcome to the Church of Emacs"
-        dashboard-startup-banner "~/.config/emacs/images/stallman.png"
+        dashboard-banner-logo-title "Descend. The abyss has been expecting you since before you knew you were falling. Welcome to the Church of Emacs"
+        dashboard-startup-banner "~/.config/emacs/images/church.png"
         dashboard-items '((recents . 5)
                           (bookmarks . 5)))
   :config
