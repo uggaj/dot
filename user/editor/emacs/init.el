@@ -70,7 +70,8 @@
   (ivy-rich-mode 1))
 
 (use-package treemacs
-  :bind ("C-c t" . treemacs)
+  :bind (("C-c t" . treemacs)
+         ("M-0" . treemacs-select-window))
   :config
   (setq treemacs-width 35
         treemacs-is-never-other-window t))
