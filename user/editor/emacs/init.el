@@ -100,7 +100,7 @@
   (setq flymake-fringe-indicator-position 'right-fringe))
 
 (setq eldoc-echo-area-use-multiline-p t)
-(setq eldoc-idle-delay 0.1)
+(setq eldoc-idle-delay 0.5)
 (setq eldoc-echo-area-prefer-doc-buffer t)
 
 (use-package eldoc-box
@@ -108,14 +108,16 @@
   :hook (eglot-managed-mode . eldoc-box-hover-at-point-mode)
   :config
   (setq eldoc-box-max-pixel-width 600
-        eldoc-box-max-pixel-height 400))
+        eldoc-box-max-pixel-height 400
+        eldoc-box-only-multi-line nil))
 
 (use-package company
   :hook (prog-mode . company-mode)
   :config
   (setq company-idle-delay 0.2
         company-minimum-prefix-length 1
-        company-tooltip-align-annotations t))
+        company-tooltip-align-annotations t
+        company-begin-commands '(self-insert-command)))
 
 (use-package company-box
   :after company
