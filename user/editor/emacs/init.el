@@ -8,6 +8,7 @@
 (electric-pair-mode 1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(tab-bar-mode 1)
 (setq confirm-kill-emacs 'y-or-n-p)
 (setq use-short-answers t)
 
@@ -100,6 +101,14 @@
 
 (setq eldoc-echo-area-use-multiline-p t)
 (setq eldoc-idle-delay 0.1)
+(setq eldoc-echo-area-prefer-doc-buffer t)
+
+(use-package eldoc-box
+  :after eglot
+  :hook (eglot-managed-mode . eldoc-box-hover-at-point-mode)
+  :config
+  (setq eldoc-box-max-pixel-width 600
+        eldoc-box-max-pixel-height 400))
 
 (use-package company
   :hook (prog-mode . company-mode)

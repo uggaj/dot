@@ -20,6 +20,7 @@
       ivy-rich
       company
       company-box
+      eldoc-box
 
       treemacs
       treemacs-nerd-icons
