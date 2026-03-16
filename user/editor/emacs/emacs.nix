@@ -22,6 +22,7 @@
       company
       company-box
       eldoc-box
+      treesit-auto
 
       treemacs
       treemacs-nerd-icons
@@ -35,6 +36,7 @@
 
       rust-mode
       nix-mode
+      nix-ts-mode
     ];
   };
 
@@ -42,4 +44,9 @@
 
   home.file.".config/emacs/init.el".source = ./init.el;
   home.file.".config/emacs/images".source = ./images;
+  home.file.".config/emacs/early-init.el".source = ./early-init.el;
+
+  home.file.".cache/emacs/backups".directory = true;
+  home.file.".cache/emacs/auto-saves".directory = true;
+  home.file.".cache/emacs/locks".directory = true;
 }

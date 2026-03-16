@@ -1,15 +1,12 @@
-(setq package-enable-at-startup nil)
 (eval-when-compile
   (require 'use-package))
+(setq use-package-compute-statistics t)
 
-(setq inhibit-startup-screen t)
+(setq read-process-output-max (* 1024 1024))
+
 (global-auto-revert-mode 1)
 (delete-selection-mode 1)
 (electric-pair-mode 1)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(tab-bar-mode 1)
 (setq confirm-kill-emacs 'y-or-n-p)
 (setq use-short-answers t)
 
@@ -90,11 +87,12 @@
   (treemacs-load-theme "nerd-icons"))
 
 (use-package eglot
-  :hook ((rust-mode
-          c-mode
-          c++-mode
-          python-mode
-          nix-mode
+  :hook ((rust-ts-mode rust-mode
+          c-ts-mode c-mode
+          c++-ts-mode c++-mode
+          python-ts-mode python-mode
+          nix-ts-mode nix-mode
+          nasm-ts-mode
           asm-mode) . eglot-ensure)
   :config
   (setq eglot-autoshutdown t))
@@ -143,13 +141,18 @@
   :hook (prog-mode . hl-todo-mode))
 
 (use-package aggressive-indent
-  :hook (prog-mode . aggressive-indent-mode))
+  :hook (emacs-lisp-mode . aggressive-indent-mode))
 
 (use-package ws-butler
   :hook (prog-mode . ws-butler-mode))
 
 (use-package envrc
   :hook (after-init . envrc-global-mode))
+
+(use-package treesit-auto
+  :config
+  (setq treesit-auto-install 'prompt)
+  (global-treesit-auto-mode))
 
 (global-set-key (kbd "C-x b")         'ivy-switch-buffer)
 (global-set-key (kbd "C-x C-b")       'ibuffer)
