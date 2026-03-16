@@ -1,5 +1,6 @@
-(eval-when-compile
-  (require 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure nil)
+
 (setq use-package-compute-statistics t)
 
 (setq read-process-output-max (* 1024 1024))
