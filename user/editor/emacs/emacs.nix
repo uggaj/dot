@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.emacs = {
@@ -46,7 +46,9 @@
   home.file.".config/emacs/images".source = ./images;
   home.file.".config/emacs/early-init.el".source = ./early-init.el;
 
-  home.file.".cache/emacs/backups".directory = true;
-  home.file.".cache/emacs/auto-saves".directory = true;
-  home.file.".cache/emacs/locks".directory = true;
+  home.activation.createEmacsCacheDirs = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    mkdir -p ~/.cache/emacs/backups
+    mkdir -p ~/.cache/emacs/auto-saves
+    mkdir -p ~/.cache/emacs/locks
+  '';
 }
