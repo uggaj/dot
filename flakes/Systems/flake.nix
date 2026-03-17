@@ -24,6 +24,7 @@
 
             cmake
             ninja
+	    bear
 
             pkg-config
 	    gettext
