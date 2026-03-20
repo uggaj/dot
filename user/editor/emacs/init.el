@@ -25,7 +25,7 @@
   (doom-themes-enable-bold t)
   (doom-themes-enable-italic t)
   :config
-  (load-theme 'doom-1337 t)
+  (load-theme 'doom-ayu-dark t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
 
