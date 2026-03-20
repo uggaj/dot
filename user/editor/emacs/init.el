@@ -96,7 +96,9 @@
           nasm-ts-mode
           asm-mode) . eglot-ensure)
   :config
-  (setq eglot-autoshutdown t))
+  (setq eglot-autoshutdown t)
+  (add-to-list 'eglot-server-programs
+               '(asm-mode . ("asm-lsp"))))
 
 (add-hook 'eglot-managed-mode-hook
           (lambda ()
