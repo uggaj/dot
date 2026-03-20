@@ -10,8 +10,8 @@
     ./user/compositor/picom.nix
     ./user/editor/emacs/emacs.nix
   ];
-  home.username = "vyanix";
-  home.homeDirectory = "/home/vyanix";
+  home.username = "uebrmensch";
+  home.homeDirectory = "/home/uebrmensch";
   home.stateVersion = "25.11";
   programs.git = {
     enable = true;
@@ -42,7 +42,6 @@
     bash-language-server
     brave
     btop
-    efm-langserver
     eza
     fd
     flameshot

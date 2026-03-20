@@ -1,5 +1,5 @@
 {
-  description = "NixOS flake for vyanix";
+  description = "NixOS flake for uebrmensch";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -18,7 +18,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.vyanix = import ./home.nix;
+            users.uebrmensch = import ./home.nix;
             backupFileExtension = "backup";
           };
         }

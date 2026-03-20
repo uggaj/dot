@@ -9,12 +9,12 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices."luks-b0966ec1-8037-4b7f-b8ec-092bbf698747".device = "/dev/disk/by-uuid/b0966ec1-8037-4b7f-b8ec-092bbf698747";
+  boot.initrd.luks.devices."luks-6d2075cf-29b4-4a81-bac0-bd8bd804dff3".device = "/dev/disk/by-uuid/6d2075cf-29b4-4a81-bac0-bd8bd804dff3";
   boot.blacklistedKernelModules = [ "btusb" ];
 
   # Networking.
   networking.hostName = "my-nixos";
-  # networking.wireless.enable = false;
+  # networking.wireless.enable = true;
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   networking.networkmanager.enable = true;
@@ -25,7 +25,6 @@
 
   # Internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
     LC_IDENTIFICATION = "en_IN";
@@ -63,9 +62,9 @@
   ];
 
   # User.
-  users.users.vyanix = {
+  users.users.uebrmensch = {
     isNormalUser = true;
-    description = "vyanix";
+    description = "uebrmensch";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.bash;
   };
@@ -78,7 +77,7 @@
     };
   };
   nixpkgs.config.allowUnfree = true;
-  
+
   # Power.
   services.power-profiles-daemon.enable = false;
   services.tlp = {
