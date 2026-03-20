@@ -29,6 +29,7 @@
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
 
+(setq display-line-numbers-type 'relative)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 (use-package dashboard

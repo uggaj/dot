@@ -1,52 +1,57 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;
 
-    extraPackages = epkgs: with epkgs; [
-      use-package
+    extraPackages =
+      epkgs: with epkgs; [
+        use-package
 
-      envrc
-       
-      nerd-icons
-      dashboard
-      doom-modeline
-      doom-themes
-      which-key
+        envrc
 
-      ivy
-      counsel
-      ivy-rich
-      company
-      company-box
-      eldoc-box
-      treesit-auto
+        nerd-icons
+        dashboard
+        doom-modeline
+        doom-themes
+        which-key
 
-      treemacs
-      treemacs-nerd-icons
+        ivy
+        counsel
+        ivy-rich
+        company
+        company-box
+        eldoc-box
+        treesit-auto
 
-      magit
+        treemacs
+        treemacs-nerd-icons
 
-      rainbow-delimiters
-      hl-todo
-      aggressive-indent
-      ws-butler
+        magit
 
-      rust-mode
-      nix-mode
-      nix-ts-mode
-    ];
+        rainbow-delimiters
+        hl-todo
+        aggressive-indent
+        ws-butler
+
+        rust-mode
+        nix-mode
+        nix-ts-mode
+      ];
   };
 
   fonts.fontconfig.enable = true;
 
-  home.file.".config/emacs/init.el".source = ./init.el;
-  home.file.".config/emacs/images".source = ./images;
-  home.file.".config/emacs/early-init.el".source = ./early-init.el;
+  xdg.configFile."emacs".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/uebrmensch/.nixos/user/editor/emacs";
 
-  home.activation.createEmacsCacheDirs = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  home.activation.createEmacsCacheDirs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p ~/.cache/emacs/backups
     mkdir -p ~/.cache/emacs/auto-saves
     mkdir -p ~/.cache/emacs/locks

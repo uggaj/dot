@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = [ pkgs.fastfetch ];
-  xdg.configFile."fastfetch/config.jsonc".source = ../config/fastfetch/config.jsonc;
+  xdg.configFile."fastfetch".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/uebrmensch/.nixos/user/config/fastfetch";
 }
