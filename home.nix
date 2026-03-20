@@ -17,8 +17,8 @@
     enable = true;
     settings = {
       user = {
-        name = "vyanix";
-        email = "186918137+vyanix@users.noreply.github.com";
+        name = "uebrmensch";
+        email = "186918137+uebrmensch@users.noreply.github.com";
       };
       init.defaultBranch = "main";
     };
