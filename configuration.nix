@@ -1,17 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.luks.devices."luks-347acf17-4b7f-4401-9314-2006643736cc".device = "/dev/disk/by-uuid/347acf17-4b7f-4401-9314-2006643736cc";
+  boot.initrd.luks.devices."luks-347acf17-4b7f-4401-9314-2006643736cc".device =
+    "/dev/disk/by-uuid/347acf17-4b7f-4401-9314-2006643736cc";
   boot.blacklistedKernelModules = [ "btusb" ];
 
   # Networking.
@@ -59,22 +59,39 @@
   hardware.alsa.enablePersistence = true;
   services.pipewire.enable = false;
   security.rtkit.enable = false;
-  fonts.packages = with pkgs; [
-    nerd-fonts.space-mono
-  ];
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.space-mono
+      ibm-plex
+      nerd-fonts.symbols-only
+    ];
+    fontconfig.defaultFonts = {
+      monospace = [
+        "SpaceMono Nerd Font"
+        "IBM Plex Mono"
+        "Symbols Nerd Font"
+      ];
+    };
+  };
 
   # User.
   users.users.jaggu = {
     isNormalUser = true;
     description = "jaggu";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.bash;
   };
 
   # Nix.
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       auto-optimise-store = true;
     };
   };
@@ -88,7 +105,7 @@
       STOP_CHARGE_THRESH_BAT0 = 80;
     };
   };
-  
+
   # Packages.
   environment.systemPackages = with pkgs; [
     alsa-utils
@@ -110,7 +127,6 @@
   # };
 
   programs.dconf.enable = true;
-
 
   # OpenSSH daemon.
   # services.openssh.enable = true;

@@ -7,7 +7,7 @@
       confirm_os_window_close = 0;
       enabled_layouts = "tall,*";
       window_padding_width = 5;
-      font_family = "SpaceMono Nerd Font";
+      font_family = "IBM Plex Mono";
       font_size = 10;
       background_opacity = "0.90";
       tab_bar_style = "powerline";
@@ -20,12 +20,12 @@
       color1 = "#deeeed";
       color2 = "#f5deb4";
       color3 = "#b4b4b4";
-      color4 = "#7a7a7a"; 
+      color4 = "#7a7a7a";
       color5 = "#66b2b2";
       color6 = "#cccccc";
       color7 = "#f1f1f1";
-      color8  = "#4a4a4a";
-      color9  = "#708090";
+      color8 = "#4a4a4a";
+      color9 = "#708090";
       color10 = "#a6ffc9";
       color11 = "#dddddd";
       color12 = "#aaaaaa";
