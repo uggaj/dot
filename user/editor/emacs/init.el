@@ -20,14 +20,26 @@
 (add-to-list 'default-frame-alist '(font . "SpaceMono Nerd Font-10"))
 (setq-default line-spacing 0.12)
 
-(use-package doom-themes
-  :custom
-  (doom-themes-enable-bold t)
-  (doom-themes-enable-italic t)
+;; (use-package doom-themes
+;;   :custom
+;;   (doom-themes-enable-bold t)
+;;   (doom-themes-enable-italic t)
+;;   :config
+;;   (load-theme 'doom-ayu-dark t)
+;;   (doom-themes-visual-bell-config)
+;;   (doom-themes-org-config))
+
+(use-package kanagawa-themes
   :config
-  (load-theme 'doom-ayu-dark t)
-  (doom-themes-visual-bell-config)
-  (doom-themes-org-config))
+  (setq kanagawa-themes-comment-italic t      ;; Italic comments
+        kanagawa-themes-keyword-italic t      ;; Italic keywords
+        kanagawa-themes-org-agenda-height t   ;; Varying org agenda heights
+        kanagawa-themes-org-bold t            ;; Bold org headings
+        kanagawa-themes-org-height t          ;; Varying org heading heights
+        kanagawa-themes-org-highlight t       ;; Highlight org headings
+        kanagawa-themes-org-priority-bold t)  ;; Bold priority items in agenda
+  (load-theme 'kanagawa-wave t))
+
 
 (setq display-line-numbers-type 'relative)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)

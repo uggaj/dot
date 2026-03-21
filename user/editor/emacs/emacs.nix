@@ -20,6 +20,7 @@
         dashboard
         doom-modeline
         doom-themes
+        kanagawa-themes
         which-key
 
         ivy
