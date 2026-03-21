@@ -7,8 +7,8 @@
       confirm_os_window_close = 0;
       enabled_layouts = "tall,*";
       window_padding_width = 5;
-      font_family = "IBM Plex Mono";
-      font_size = 12;
+      font_family = "Liga SFMono Nerd Font";
+      font_size = 10;
       background_opacity = "0.90";
       tab_bar_style = "powerline";
       background = "#101010";

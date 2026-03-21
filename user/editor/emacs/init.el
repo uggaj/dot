@@ -14,10 +14,10 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-(set-face-attribute 'default nil :font "IBM Plex Mono" :height 120)
-(set-face-attribute 'fixed-pitch nil :font "IBM Plex Mono" :height 120)
-(set-face-attribute 'variable-pitch nil :font "IBM Plex Mono" :height 120)
-(add-to-list 'default-frame-alist '(font . "IBM Plex Mono-12"))
+(set-face-attribute 'default nil :font "Liga SFMono Nerd Font" :height 100)
+(set-face-attribute 'fixed-pitch nil :font "Liga SFMono Nerd Font" :height 100)
+(set-face-attribute 'variable-pitch nil :font "Liga SFMono Nerd Font" :height 100)
+(add-to-list 'default-frame-alist '(font . "Liga SFMono Nerd Font-10"))
 (setq-default line-spacing 0.12)
 
 (use-package doom-themes

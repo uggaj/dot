@@ -31,7 +31,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "IBM Plex Mono";
+      name = "Liga SFMono Nerd Font";
       size = 10;
     };
   };

@@ -62,19 +62,7 @@
   fonts = {
     packages = with pkgs; [
       nerd-fonts.space-mono
-      ibm-plex
-      nerd-fonts.symbols-only
     ];
-    fontconfig = {
-      enable = true;
-      defaultFonts = {
-        monospace = [
-          "IBM Plex Mono"
-          "Symbols Nerd Font"
-          "SpaceMono Nerd Font"
-        ];
-      };
-    };
   };
 
   # User.
