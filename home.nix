@@ -31,7 +31,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "Liga SFMono Nerd Font";
+      name = "SpaceMono Nerd Font";
       size = 10;
     };
   };
