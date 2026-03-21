@@ -9,20 +9,11 @@
     ./user/suckless/suckless.nix
     ./user/compositor/picom.nix
     ./user/editor/emacs/emacs.nix
+    ./user/config/git/git.nix
   ];
   home.username = "jaggu";
   home.homeDirectory = "/home/jaggu";
   home.stateVersion = "25.11";
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "jaggu";
-        email = "jaggu@noreply.codeberg.org";
-      };
-      init.defaultBranch = "main";
-    };
-  };
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;

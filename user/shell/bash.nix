@@ -6,8 +6,12 @@
     enableCompletion = true;
     sessionVariables = {
       PATH = "$HOME/.local/bin:$PATH";
+
     };
     initExtra = ''
+      if [ -f "$HOME/.nixos/.env" ]; then
+        source "$HOME/.nixos/.env"
+      fi
       if [ -n "$DISPLAY" ] || [ -n "$WAYLAND_DISPLAY" ]; then
         eval "$(${pkgs.starship}/bin/starship init bash)"
       fi
