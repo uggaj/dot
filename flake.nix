@@ -1,5 +1,5 @@
 {
-  description = "NixOS flake for uebrmensch";
+  description = "NixOS flake for jaggu";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -18,7 +18,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.uebrmensch = import ./home.nix;
+            users.jaggu = import ./home.nix;
             backupFileExtension = "backup";
           };
         }

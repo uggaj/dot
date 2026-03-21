@@ -9,7 +9,9 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices."luks-6d2075cf-29b4-4a81-bac0-bd8bd804dff3".device = "/dev/disk/by-uuid/6d2075cf-29b4-4a81-bac0-bd8bd804dff3";
+  # Use latest kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.initrd.luks.devices."luks-347acf17-4b7f-4401-9314-2006643736cc".device = "/dev/disk/by-uuid/347acf17-4b7f-4401-9314-2006643736cc";
   boot.blacklistedKernelModules = [ "btusb" ];
 
   # Networking.
@@ -62,9 +64,9 @@
   ];
 
   # User.
-  users.users.uebrmensch = {
+  users.users.jaggu = {
     isNormalUser = true;
-    description = "uebrmensch";
+    description = "jaggu";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.bash;
   };
@@ -86,7 +88,7 @@
       STOP_CHARGE_THRESH_BAT0 = 80;
     };
   };
-
+  
   # Packages.
   environment.systemPackages = with pkgs; [
     alsa-utils
@@ -109,7 +111,8 @@
 
   programs.dconf.enable = true;
 
-  # Enable the OpenSSH daemon.
+
+  # OpenSSH daemon.
   # services.openssh.enable = true;
 
   # Open ports in the firewall.

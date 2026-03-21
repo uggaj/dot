@@ -49,7 +49,7 @@
   fonts.fontconfig.enable = true;
 
   xdg.configFile."emacs".source =
-    config.lib.file.mkOutOfStoreSymlink "/home/uebrmensch/.nixos/user/editor/emacs";
+    config.lib.file.mkOutOfStoreSymlink "/home/jaggu/.nixos/user/editor/emacs";
 
   home.activation.createEmacsCacheDirs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p ~/.cache/emacs/backups

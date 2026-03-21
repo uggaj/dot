@@ -10,15 +10,15 @@
     ./user/compositor/picom.nix
     ./user/editor/emacs/emacs.nix
   ];
-  home.username = "uebrmensch";
-  home.homeDirectory = "/home/uebrmensch";
+  home.username = "jaggu";
+  home.homeDirectory = "/home/jaggu";
   home.stateVersion = "25.11";
   programs.git = {
     enable = true;
     settings = {
       user = {
-        name = "uebrmensch";
-        email = "186918137+uebrmensch@users.noreply.github.com";
+        name = "jaggu";
+        email = "jaggu@noreply.codeberg.org";
       };
       init.defaultBranch = "main";
     };
