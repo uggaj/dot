@@ -8,7 +8,7 @@
       enabled_layouts = "tall,*";
       window_padding_width = 5;
       font_family = "IBM Plex Mono";
-      font_size = 10;
+      font_size = 12;
       background_opacity = "0.90";
       tab_bar_style = "powerline";
       background = "#101010";

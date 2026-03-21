@@ -65,12 +65,15 @@
       ibm-plex
       nerd-fonts.symbols-only
     ];
-    fontconfig.defaultFonts = {
-      monospace = [
-        "SpaceMono Nerd Font"
-        "IBM Plex Mono"
-        "Symbols Nerd Font"
-      ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [
+          "IBM Plex Mono"
+          "Symbols Nerd Font"
+          "SpaceMono Nerd Font"
+        ];
+      };
     };
   };
 
