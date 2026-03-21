@@ -9,7 +9,6 @@
     ./user/suckless/suckless.nix
     ./user/compositor/picom.nix
     ./user/editor/emacs/emacs.nix
-    ./user/config/git/git.nix
   ];
   home.username = "jaggu";
   home.homeDirectory = "/home/jaggu";
