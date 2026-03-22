@@ -21,6 +21,79 @@
 (add-to-list 'default-frame-alist '(font . "SpaceMono Nerd Font-10"))
 (setq-default line-spacing 0.12)
 
+(use-package org
+  :hook (org-mode . variable-pitch-mode)
+  :config
+  (require 'org-faces)
+  (setq org-hide-emphasis-markers t)
+  (let ((fixed  "SpaceMono Nerd Font")
+        (varpitch (if (find-font (font-spec :name "Lilex"))
+                      "Lilex"
+                    "SpaceMono Nerd Font")))
+    (dolist (face '((org-level-1 . 1.25)
+                    (org-level-2 . 1.15)
+                    (org-level-3 . 1.08)
+                    (org-level-4 . 1.0)
+                    (org-level-5 . 1.0)
+                    (org-level-6 . 1.0)
+                    (org-level-7 . 1.0)
+                    (org-level-8 . 1.0)))
+      (set-face-attribute (car face) nil
+                          :font varpitch :weight 'medium :height (cdr face)))
+    (set-face-attribute 'org-document-title nil
+                        :font varpitch :weight 'bold :height 1.4)
+    (dolist (face '(org-block org-table org-formula org-code
+                              org-verbatim org-special-keyword
+                              org-meta-line org-checkbox))
+      (set-face-attribute face nil :inherit 'fixed-pitch))))
+
+(use-package visual-fill-column
+  :commands visual-fill-column-mode
+  :init
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text t))
+
+(use-package org-present
+  :commands org-present
+  :bind (:map org-present-mode-keymap
+              ("<right>" . org-present-next)
+              ("<left>"  . org-present-prev)
+              ("q"       . org-present-quit))
+  :config
+  (defun my/org-present-prepare-slide (_buffer-name _heading)
+    "Show only the current top-level slide and its direct children."
+    (org-overview)
+    (org-show-entry)
+    (org-show-children))
+  (defun my/org-present-start ()
+    "Enter presentation mode: scale fonts, center, wrap."
+    (setq-local face-remapping-alist
+                `((default            (:height 1.4)  variable-pitch)
+                  (header-line        (:height 3.5)  variable-pitch)
+                  (org-document-title (:height 1.8)  org-document-title)
+                  (org-level-1        (:height 1.35) org-level-1)
+                  (org-level-2        (:height 1.2)  org-level-2)
+                  (org-code           (:height 1.4)  org-code)
+                  (org-verbatim       (:height 1.4)  org-verbatim)
+                  (org-block          (:height 1.2)  org-block)
+                  (org-block-begin-line (:height 0.65) org-block-begin-line)))
+    (setq header-line-format " ")
+    (org-display-inline-images)
+    (visual-fill-column-mode 1)
+    (visual-line-mode 1)
+    (setq-local mode-line-format nil))
+  (defun my/org-present-end ()
+    "Leave presentation mode: restore all tweaks."
+    (setq-local face-remapping-alist '((default variable-pitch default)))
+    (setq header-line-format nil)
+    (org-remove-inline-images)
+    (visual-fill-column-mode 0)
+    (visual-line-mode 0)
+    (kill-local-variable 'mode-line-format))
+  (add-hook 'org-present-mode-hook      #'my/org-present-start)
+  (add-hook 'org-present-mode-quit-hook #'my/org-present-end)
+  (add-hook 'org-present-after-navigate-functions #'my/org-present-prepare-slide))
+
 (use-package doom-themes
   :custom
   (doom-themes-enable-bold t)

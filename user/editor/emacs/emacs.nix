@@ -22,6 +22,8 @@
         doom-themes
         kanagawa-themes
         which-key
+        org-present
+        visual-fill-column
 
         ivy
         counsel
