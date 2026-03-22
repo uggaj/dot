@@ -33,12 +33,25 @@ static const char *colors[][3]      = {
 };
 */
 
-static const char col_bg[]          = "#101010";
-static const char col_fg[]          = "#cccccc";
-static const char col_muted[]       = "#7a7a7a";
-static const char col_border[]      = "#2a2a2a";
-static const char col_accent[]      = "#1bfd9c";
-static const char col_skin[]        = "#f5deb3";
+/* static const char col_bg[]          = "#101010"; */
+/* static const char col_fg[]          = "#cccccc"; */
+/* static const char col_muted[]       = "#7a7a7a"; */
+/* static const char col_border[]      = "#2a2a2a"; */
+/* static const char col_accent[]      = "#1bfd9c"; */
+/* static const char col_skin[]        = "#f5deb3"; */
+/* static const char *colors[][3]      = { */
+/* 	/\*               fg             bg             border   *\/ */
+/* 	[SchemeNorm] = { col_fg,    col_bg,            col_border }, */
+/* 	[SchemeSel]  = { col_bg,    col_skin,          col_skin }, */
+/* 	[SchemeBar]  = { NULL,      NULL,              NULL }, */
+/* }; */
+
+static const char col_bg[]          = "#1b182c";
+static const char col_fg[]          = "#cbe3e7";
+static const char col_muted[]       = "#565575";
+static const char col_border[]      = "#2e2b3d";
+static const char col_accent[]      = "#63f2f1";
+static const char col_skin[]        = "#aaffe4";
 static const char *colors[][3]      = {
 	/*               fg             bg             border   */
 	[SchemeNorm] = { col_fg,    col_bg,            col_border },

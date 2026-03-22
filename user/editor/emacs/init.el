@@ -1,3 +1,4 @@
+
 (require 'use-package)
 (setq use-package-always-ensure nil)
 
@@ -20,26 +21,29 @@
 (add-to-list 'default-frame-alist '(font . "SpaceMono Nerd Font-10"))
 (setq-default line-spacing 0.12)
 
-;; (use-package doom-themes
-;;   :custom
-;;   (doom-themes-enable-bold t)
-;;   (doom-themes-enable-italic t)
-;;   :config
-;;   (load-theme 'doom-ayu-dark t)
-;;   (doom-themes-visual-bell-config)
-;;   (doom-themes-org-config))
-
-(use-package kanagawa-themes
+(use-package doom-themes
+  :custom
+  (doom-themes-enable-bold t)
+  (doom-themes-enable-italic t)
   :config
-  (setq kanagawa-themes-comment-italic t      ;; Italic comments
-        kanagawa-themes-keyword-italic t      ;; Italic keywords
-        kanagawa-themes-org-agenda-height t   ;; Varying org agenda heights
-        kanagawa-themes-org-bold t            ;; Bold org headings
-        kanagawa-themes-org-height t          ;; Varying org heading heights
-        kanagawa-themes-org-highlight t       ;; Highlight org headings
-        kanagawa-themes-org-priority-bold t)  ;; Bold priority items in agenda
-  (load-theme 'kanagawa-wave t))
+  (load-theme 'doom-challenger-deep t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config))
 
+;; (use-package kanagawa-themes
+;;   :config
+;;   (setq kanagawa-themes-comment-italic t      ;; Italic comments
+;;         kanagawa-themes-keyword-italic t      ;; Italic keywords
+;;         kanagawa-themes-org-agenda-height t   ;; Varying org agenda heights
+;;         kanagawa-themes-org-bold t            ;; Bold org headings
+;;         kanagawa-themes-org-height t          ;; Varying org heading heights
+;;         kanagawa-themes-org-highlight t       ;; Highlight org headings
+;;         kanagawa-themes-org-priority-bold t)  ;; Bold priority items in agenda
+;;   (load-theme 'kanagawa-wave t))
+
+;; (add-to-list 'custom-theme-load-path
+;;              (expand-file-name "themes" user-emacs-directory))
+;; (load-theme 'embark t)
 
 (setq display-line-numbers-type 'relative)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
@@ -55,13 +59,73 @@
         dashboard-items '((recents . 5)
                           (bookmarks . 5)))
   :config
-  (dashboard-setup-startup-hook))
+  (dashboard-setup-startup-hook)
+  (custom-set-faces
+   '(dashboard-banner-logo-title ((t (:height 1.0 :weight bold))))))
 
 (use-package doom-modeline
   :init
   (doom-modeline-mode 1)
   :custom
-  (doom-modeline-height 25))
+  (doom-modeline-height 28)
+  (doom-modeline-bar-width 5)
+  (doom-modeline-window-width-limit 110)
+  (doom-modeline-buffer-file-name-style 'truncate-with-project)
+  (doom-modeline-icon t)
+  (doom-modeline-major-mode-icon t)
+  (doom-modeline-major-mode-color-icon t)
+  (doom-modeline-buffer-state-icon t)
+  (doom-modeline-buffer-modification-icon t)
+  (doom-modeline-lsp-icon t)
+  (doom-modeline-vcs-icon t)
+  (doom-modeline-check-icon t)
+  (doom-modeline-lsp t)
+  (doom-modeline-check 'auto)
+  (doom-modeline-vcs-max-length 20)
+  (doom-modeline-buffer-name t)
+  (doom-modeline-highlight-modified-buffer-name t)
+  (doom-modeline-enable-buffer-position t)
+  (doom-modeline-buffer-encoding t)
+  (doom-modeline-selection-info t)
+  (doom-modeline-position-column-line-format '("%l:%c"))
+  (doom-modeline-column-zero-based nil)
+  (doom-modeline-minor-modes nil)
+  (doom-modeline-battery t)
+  (doom-modeline-time t)
+  (doom-modeline-github nil)
+  (doom-modeline-mu4e nil)
+  (doom-modeline-gnus nil)
+  (doom-modeline-irc nil)
+  (doom-modeline-env-version nil)
+  (doom-modeline-project-name t)
+  (doom-modeline-unicode-number t)
+  (doom-modeline-number-limit 99)
+  :config
+  (setq doom-modeline-spc-face-overrides
+        (list :family (face-attribute 'fixed-pitch :family)))
+
+  (doom-modeline-def-segment my-buffer-info
+    "buffer-info with a leading space for breathing room."
+    (concat " " (doom-modeline-segment--buffer-info)))
+
+  (doom-modeline-def-modeline 'my-main
+    '(bar window-number modals matches my-buffer-info remote-host)
+    '(misc-info battery grip irc mu4e gnus github debug repl lsp minor-modes
+                indent-info buffer-encoding major-mode process vcs check))
+
+  (add-hook 'doom-modeline-mode-hook
+            (lambda () (doom-modeline-set-modeline 'my-main t)))
+
+  (custom-set-faces
+   '(mode-line ((t (:box (:line-width 4 :style flat-button)))))
+   '(mode-line-inactive ((t (:box (:line-width 4 :style flat-button)))))))
+
+(setq inhibit-compacting-font-caches t)
+
+(setq display-time-format "%H:%M")
+(setq display-time-default-load-average nil)
+(display-time-mode 1)
+(display-battery-mode 1)
 
 (use-package nerd-icons)
 
