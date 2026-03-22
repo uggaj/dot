@@ -62,7 +62,7 @@
   fonts = {
     packages = with pkgs; [
       nerd-fonts.space-mono
-      nerd-fonts.martian-mono
+      nerd-fonts.bigblue-terminal
     ];
   };
 

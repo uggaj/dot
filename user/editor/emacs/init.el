@@ -15,10 +15,10 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-(set-face-attribute 'default nil :font "SpaceMono Nerd Font" :height 100)
-(set-face-attribute 'fixed-pitch nil :font "SpaceMono Nerd Font" :height 100)
-(set-face-attribute 'variable-pitch nil :font "SpaceMono Nerd Font" :height 100)
-(add-to-list 'default-frame-alist '(font . "SpaceMono Nerd Font-10"))
+(set-face-attribute 'default nil :font "MartianMono Nerd Font" :height 90)
+(set-face-attribute 'fixed-pitch nil :font "MartianMono Nerd Font" :height 90)
+(set-face-attribute 'variable-pitch nil :font "MartianMono Nerd Font" :height 90)
+(add-to-list 'default-frame-alist '(font . "MartianMono Nerd Font-10"))
 (setq-default line-spacing 0.12)
 
 (use-package doom-themes
