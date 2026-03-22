@@ -18,8 +18,6 @@
       url_color = "#83a598";
       visual_bell_color = "#8ec07c";
       bell_border_color = "#8ec07c";
-      active_border_color = "#d3869b";
-      inactive_border_color = "#665c54";
       selection_foreground = "#928374";
       selection_background = "#ebdbb2";
       active_tab_foreground = "#fbf1c7";

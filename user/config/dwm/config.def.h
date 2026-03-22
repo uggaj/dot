@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 #include <X11/XF86keysym.h>
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;       /* border pixel of windows */
 static const unsigned int barpadv   = 10;
 static const unsigned int barpadh   = 200;
 static const unsigned int barheight = 2;
