@@ -26,9 +26,9 @@ static const char col_accent[]      = "#d79921";
 static const char col_skin[]        = "#fabd2f";
 static const char *colors[][3]      = {
 	/*               fg             bg             border   */
-	[SchemeNorm] = { col_fg,    col_bg,            NULL },
+	[SchemeNorm] = { col_fg,    col_bg,            col_border },
 	[SchemeSel]  = { col_bg,    col_skin,          NULL },
-	[SchemeBar]  = { NULL,      col_skin,          NULL },
+	[SchemeBar]  = { NULL,      NULL,              NULL },
 };
 
 /* tagging */
