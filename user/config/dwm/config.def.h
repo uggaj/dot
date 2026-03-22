@@ -18,40 +18,12 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "SpaceMono Nerd Font:size=10" };
 static const char dmenufont[]       = "SpaceMono Nerd Font:size=10";
 
-/*
-static const char col_bg[]          = "#ffffea";
-static const char col_fg[]          = "#000000";
-static const char col_border[]      = "#aeeeee";
-static const char col_sel_bg[]      = "#eaffff";
-static const char col_sel_fg[]      = "#000000";
-static const char col_bar_bg[]      = "#eaffff";
-static const char col_skin[]        = "#f5deb3";
-static const char *colors[][3]      = {
-	[SchemeNorm] = { col_fg,        col_bg,        col_border },
-	[SchemeSel]  = { col_sel_fg,    col_sel_bg,    col_border },
-	[SchemeBar]  = { NULL,          NULL,          NULL },
-};
-*/
-
-/* static const char col_bg[]          = "#101010"; */
-/* static const char col_fg[]          = "#cccccc"; */
-/* static const char col_muted[]       = "#7a7a7a"; */
-/* static const char col_border[]      = "#2a2a2a"; */
-/* static const char col_accent[]      = "#1bfd9c"; */
-/* static const char col_skin[]        = "#f5deb3"; */
-/* static const char *colors[][3]      = { */
-/* 	/\*               fg             bg             border   *\/ */
-/* 	[SchemeNorm] = { col_fg,    col_bg,            col_border }, */
-/* 	[SchemeSel]  = { col_bg,    col_skin,          col_skin }, */
-/* 	[SchemeBar]  = { NULL,      NULL,              NULL }, */
-/* }; */
-
-static const char col_bg[]          = "#1b182c";
-static const char col_fg[]          = "#cbe3e7";
-static const char col_muted[]       = "#565575";
-static const char col_border[]      = "#2e2b3d";
-static const char col_accent[]      = "#63f2f1";
-static const char col_skin[]        = "#aaffe4";
+static const char col_bg[]          = "#282828";
+static const char col_fg[]          = "#ebdbb2";
+static const char col_muted[]       = "#928374";
+static const char col_border[]      = "#3c3836";
+static const char col_accent[]      = "#d79921";
+static const char col_skin[]        = "#fabd2f";
 static const char *colors[][3]      = {
 	/*               fg             bg             border   */
 	[SchemeNorm] = { col_fg,    col_bg,            col_border },
