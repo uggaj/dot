@@ -5,23 +5,29 @@
     enable = true;
     backend = "xrender";
     vSync = false;
-    extraConfig = ''
-      shadow = true;
-      shadow-radius = 0;
-      shadow-offset-x = -6;
-      shadow-offset-y = -6;
-      shadow-opacity = 1.0;
+
+    shadow = true;
+    shadowOffsets = [ (-6) (-6) ];
+    shadowOpacity = 1.0;
+    shadowExclude = [
+      "window_type = 'desktop'"
+      "_GTK_FRAME_EXTENTS@:c"
+    ];
+
+    fade = false;
+
+    activeOpacity = 1.0;
+    inactiveOpacity = 1.0;
+
+    settings = {
       shadow-color = "#000000";
-      shadow-exclude = [ "window_type = 'desktop'", "_GTK_FRAME_EXTENTS@:c" ];
-      inactive-opacity = 1.0;
-      active-opacity   = 1.0;
-      frame-opacity    = 1.0;
-      fading = false;
+      shadow-radius = 0;
       blur-background = false;
       corner-radius = 0;
       detect-client-opacity = true;
       detect-transient = true;
       detect-client-leader = true;
-    '';
+      frame-opacity = 1.0;
+    };
   };
 }
