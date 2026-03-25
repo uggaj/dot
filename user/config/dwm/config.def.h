@@ -30,8 +30,8 @@ static const char col_dim[]     = "#A0A0A0";   /* inactive elements */
 
 static const char *colors[][3] = {
     /*               fg           bg           border    */
-    [SchemeNorm] = { col_black,   col_grey,    col_black },
-    [SchemeSel]  = { col_white,   col_blue,    col_black },
+    [SchemeNorm] = { col_black,   col_grey,    NULL },
+    [SchemeSel]  = { col_white,   col_blue,    NULL },
     [SchemeBar]  = { NULL,        NULL,        NULL },
 };
 
@@ -40,7 +40,7 @@ static const char *tags[] = { "TERM", "VM" };
 
 static const Rule rules[] = {
     /* class                   instance  title  tags mask  isfloating  monitor */
-    { "kitty",                 NULL,     NULL,  1 << 0,    0,          -1 },
+    { "ghostty",                 NULL,     NULL,  1 << 0,    0,          -1 },
     { ".virt-manager-wrapped", NULL,     NULL,  1 << 1,    0,          -1 },
     { "pavucontrol",           NULL,     NULL,  0,         1,          -1 },
     { "Qalculate-gtk",         NULL,     NULL,  0,         1,          -1 },
@@ -79,7 +79,7 @@ static const char *dmenucmd[] = {
     "-sb", col_blue,  "-sf", col_white,
     NULL
 };
-static const char *termcmd[]   = { "kitty", NULL };
+static const char *termcmd[]   = { "ghostty", NULL };
 static const char *flameshot[] = { "flameshot", "gui", NULL };
 static const char *br_up[]     = { "brightnessctl", "set", "+5%", NULL };
 static const char *br_down[]   = { "brightnessctl", "set", "5%-", NULL };

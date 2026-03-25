@@ -9,9 +9,8 @@
       "$schema" = "https://starship.rs/config-schema.json";
       add_newline = true;
 
-      # Primary Format String
       format = lib.concatStrings [
-	"╭"
+        "╭"
         "$os"
         "$cmd_duration"
         "$battery"
@@ -103,8 +102,8 @@
         "$shlvl"
         "$jobs"
         "$shell"
-	"$line_break"
-	"╰> "
+        "$line_break"
+        "╰> "
       ];
 
       # Palettes
@@ -129,29 +128,31 @@
         style = "fg:fg_1 bg:bg_1";
         format = "[ $symbol ]($style)";
         symbols = {
-          Alpine = " ";
-          Arch = " ";
-          Debian = " ";
-          Fedora = " ";
-          Gentoo = " ";
-          Linux = " ";
-          Macos = " ";
-          NixOS = " ";
-          Ubuntu = " ";
-          Windows = " ";
-          # Add others from your list as needed
+          Alpine = "ALPN";
+          Arch = "ARCH";
+          Debian = "DEB";
+          Fedora = "FED";
+          Gentoo = "GNT";
+          Linux = "LNX";
+          Macos = "OSX";
+          NixOS = "NIX";
+          Ubuntu = "UBT";
+          Windows = "WIN";
         };
       };
 
       battery = {
         disabled = false;
-        full_symbol = "󰂃 ";
-        charging_symbol = "󰂉 ";
-        discharging_symbol = "󰁽 ";
-        empty_symbol = "󰂎 ";
+        full_symbol = "FULL ";
+        charging_symbol = "CHG ";
+        discharging_symbol = "BAT ";
+        empty_symbol = "EMPTY";
         format = "[ $symbol$percentage ]($style)";
         display = [
-          { threshold = 100; style = "fg:fg_1 bg:bg_1"; }
+          {
+            threshold = 100;
+            style = "fg:fg_1 bg:bg_1";
+          }
         ];
       };
 
@@ -161,8 +162,8 @@
       };
 
       character = {
-        success_symbol = "[](fg:success_fg bg:bg_1)";
-        error_symbol = "[✘](fg:error_fg bg:bg_1)";
+        success_symbol = "[OK](fg:success_fg bg:bg_1)";
+        error_symbol = "[ERR](fg:error_fg bg:bg_1)";
         format = "[ $symbol ](fg:fg_1 bg:bg_1)";
       };
 
@@ -173,7 +174,7 @@
 
       sudo = {
         disabled = false;
-        symbol = "🔑";
+        symbol = "ROOT";
         style = "fg:fg_1 bg:bg_1";
         format = "[ $symbol ]($style)";
       };
@@ -182,28 +183,20 @@
         show_always = true;
         style_user = "fg:fg_1 bg:bg_1";
         style_root = "fg:fg_1 bold bg:bg_1";
-        format = "[  ($user) ]($style)";
+        format = "[ USR: ($user) ]($style)";
       };
 
       directory = {
         style = "fg:fg_1 bg:bg_1";
         format = "[ $read_only$path ]($style)";
-        read_only = "󰌾 ";
+        read_only = "(RO) ";
         truncation_length = 3;
         truncation_symbol = "…/";
-        home_symbol = " ";
-        substitutions = {
-          "Documents" = "󰈙 ";
-          "Downloads" = " ";
-          "Music" = " ";
-          "Pictures" = " ";
-          ".config" = "";
-          "Rust" = " ";
-        };
+        home_symbol = "~";
       };
 
       git_branch = {
-        symbol = "";
+        symbol = "GIT:";
         style = "fg:fg_1 bg:bg_1";
         format = "[ $symbol $branch ]($style)";
       };
@@ -211,26 +204,51 @@
       git_status = {
         style = "fg:fg_1 bg:bg_1";
         format = "[ $all_status$ahead_behind ]($style)";
-        up_to_date = "✓";
+        up_to_date = "OK";
       };
 
       # Toolchains (Simplified mapping - repeat for all languages)
-      rust = { symbol = ""; style = "fg:fg_1 bg:bg_1"; format = "[ $symbol $version ]($style)"; };
-      c = { symbol = " "; style = "fg:fg_1 bg:bg_1"; format = "[ $symbol $version ]($style)"; };
-      lua = { symbol = " "; style = "fg:fg_1 bg:bg_1"; format = "[ $symbol $version ]($style)"; };
-      nodejs = { symbol = "󰎙 "; style = "fg:fg_1 bg:bg_1"; format = "[ $symbol $version ]($style)"; };
-      nix_shell = { symbol = " "; style = "fg:fg_1 bg:bg_1"; format = "[ $symbol $version ]($style)"; };
+      rust = {
+        symbol = "RS:";
+        style = "fg:fg_1 bg:bg_1";
+        format = "[ $symbol $version ]($style)";
+      };
+      c = {
+        symbol = "C:";
+        style = "fg:fg_1 bg:bg_1";
+        format = "[ $symbol $version ]($style)";
+      };
+      lua = {
+        symbol = "LUA:";
+        style = "fg:fg_1 bg:bg_1";
+        format = "[ $symbol $version ]($style)";
+      };
+      nodejs = {
+        symbol = "JS:";
+        style = "fg:fg_1 bg:bg_1";
+        format = "[ $symbol $version ]($style)";
+      };
+      nix_shell = {
+        symbol = "NIX:";
+        style = "fg:fg_1 bg:bg_1";
+        format = "[ $symbol $version ]($style)";
+      };
+      python = {
+        symbol = "PY:";
+        style = "fg:fg_1 bg:bg_1";
+        format = "[ $symbol$version ]($style)";
+      };
 
       time = {
         disabled = false;
         style = "fg:fg_1 bg:bg_1";
-        format = "[  $time ]($style)";
+        format = "[ TIME: $time ]($style)";
       };
 
       shell = {
         disabled = false;
-        zsh_indicator = "󰰶";
-        bash_indicator = "";
+        zsh_indicator = "ZSH";
+        bash_indicator = "BASH";
         style = "fg:fg_1 bg:bg_1";
         format = "[ $indicator ]($style)";
       };
