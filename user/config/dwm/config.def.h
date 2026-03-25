@@ -4,27 +4,27 @@
 /* appearance */
 static const unsigned int borderpx  = 3;
 static const unsigned int snap      = 32;
-static const unsigned int gappih    = 6;
-static const unsigned int gappiv    = 6;
-static const unsigned int gappoh    = 6;
-static const unsigned int gappov    = 6;
+static const unsigned int gappih    = 20;
+static const unsigned int gappiv    = 20;
+static const unsigned int gappoh    = 20;
+static const unsigned int gappov    = 20;
 static const int smartgaps          = 0;
 static const int showbar            = 1;
 static const int topbar             = 1;
 
-static const unsigned int barpadv   = 6;
-static const unsigned int barpadh   = 0;
+static const unsigned int barpadv   = 10;
+static const unsigned int barpadh   = 200;
 static const unsigned int barheight = 2;
 static const unsigned int barborder = 2;
 static const unsigned int floatbar  = 1;
 
-static const char *fonts[]    = { "SpaceMono Nerd Font:size=10" };
-static const char dmenufont[] = "SpaceMono Nerd Font:size=10";
+static const char *fonts[]    = { "SpaceMono Nerd Font:size=10:weight=bold" };
+static const char dmenufont[] = "SpaceMono Nerd Font:size=10:weight=bold";
 
-static const char col_grey[]    = "#C0C0C0";   /* window/bar background */
+static const char col_grey[]    = "#CECECE";   /* window/bar background */
 static const char col_mid[]     = "#808080";   /* selected bar background */
 static const char col_black[]   = "#000000";   /* text + borders */
-static const char col_blue[]    = "#0000AA";   /* selection highlight */
+static const char col_blue[]    = "#4a7fa5";   /* selection highlight */
 static const char col_white[]   = "#FFFFFF";   /* selected text */
 static const char col_dim[]     = "#A0A0A0";   /* inactive elements */
 
@@ -32,11 +32,11 @@ static const char *colors[][3] = {
     /*               fg           bg           border    */
     [SchemeNorm] = { col_black,   col_grey,    col_black },
     [SchemeSel]  = { col_white,   col_blue,    col_black },
-    [SchemeBar]  = { col_black,   col_mid,     col_black },
+    [SchemeBar]  = { NULL,        NULL,        NULL },
 };
 
 /* tagging */
-static const char *tags[] = { "", "󱡶" };
+static const char *tags[] = { "TERM", "VM" };
 
 static const Rule rules[] = {
     /* class                   instance  title  tags mask  isfloating  monitor */

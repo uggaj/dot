@@ -5,29 +5,22 @@
     enable = true;
     backend = "xrender";
     vSync = false;
-
-    shadow = true;
-    shadowOffsets = [ (-6) (-6) ];
-    shadowOpacity = 1.0;
-    shadowExclude = [
-      "window_type = 'desktop'"
-      "_GTK_FRAME_EXTENTS@:c"
-    ];
-
-    fade = false;
-
-    activeOpacity = 1.0;
-    inactiveOpacity = 1.0;
-
-    settings = {
-      shadow-color = "#000000";
-      shadow-radius = 0;
-      blur-background = false;
+    extraConfig = ''
+      use-damage = true;
+      shadow = true;
+      shadow-radius = 2;
+      shadow-offset-x = 8;
+      shadow-offset-y = 8;
+      shadow-opacity = 1.0;
+      shadow-exclude = [
+        "window_type = 'desktop'",
+        "_GTK_FRAME_EXTENTS@:c"
+      ];
       corner-radius = 0;
+      detect-rounded-corners = false;
       detect-client-opacity = true;
       detect-transient = true;
       detect-client-leader = true;
-      frame-opacity = 1.0;
-    };
+    '';
   };
 }
