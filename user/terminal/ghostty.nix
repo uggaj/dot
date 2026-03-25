@@ -4,6 +4,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
+      "shell-integration" = "none";
       "font-family" = "SpaceMono Nerd Font Mono";
       "font-size" = 10;
       "font-synthetic-style" = "bold";
