@@ -1,6 +1,7 @@
 ## dot
 
-![Desktop Setup](assets/desk.png)
+![Desktop Setup (new)](assets/new.png)
+![Desktop Setup](assets/old.png)
 
 Personal NixOS configuration and dotfiles. 
 Minimal, reproducible, and developer-focused.
