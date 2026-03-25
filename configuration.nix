@@ -62,8 +62,6 @@
   fonts = {
     packages = with pkgs; [
       nerd-fonts.space-mono
-      nerd-fonts.bigblue-terminal
-      lilex
       nerd-fonts.symbols-only
     ];
   };
