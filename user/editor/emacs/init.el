@@ -16,10 +16,9 @@
 
 (set-face-attribute 'default    nil :font "SpaceMono Nerd Font" :height 100)
 (set-face-attribute 'fixed-pitch nil :font "SpaceMono Nerd Font" :height 100)
-;; No variable-pitch in normal buffers. org-present re-enables it locally.
 (set-face-attribute 'variable-pitch nil :font "SpaceMono Nerd Font" :height 100)
 (add-to-list 'default-frame-alist '(font . "SpaceMono Nerd Font-10"))
-(setq-default line-spacing 0)        ; tight, like a real ncurses app
+(setq-default line-spacing 0)
 
 (add-to-list 'custom-theme-load-path
              (expand-file-name "themes" user-emacs-directory))
@@ -36,12 +35,6 @@
                 "  "
                 mode-line-misc-info))
 
-(custom-set-faces
- '(mode-line          ((t (:background "#808080" :foreground "#000000"
-                           :box (:line-width 1 :color "#000000")))))
- '(mode-line-inactive ((t (:background "#A0A0A0" :foreground "#444444"
-                           :box (:line-width 1 :color "#808080"))))))
-
 (setq display-time-format "%H:%M")
 (setq display-time-default-load-average nil)
 (display-time-mode 1)
@@ -56,6 +49,7 @@
   (require 'org-faces)
   (setq org-hide-emphasis-markers t)
   (setq org-image-actual-width nil)
+  (setq org-startup-with-inline-images t)
   (dolist (face '(org-block org-table org-formula org-code
                   org-verbatim org-special-keyword
                   org-meta-line org-checkbox))
@@ -85,6 +79,8 @@
                   (org-level-1          (:height 1.4) org-level-1)
                   (org-level-2          (:height 1.2) org-level-2)))
     (setq-local header-line-format " ")
+    (face-remap-add-relative 'header-line '(:height 5.0 :background "#CECECE" :box nil :underline nil))
+    (face-remap-add-relative 'org-link '(:underline nil))
     (setq-local visual-fill-column-width 72)
     (setq-local visual-fill-column-center-text t)
     (visual-fill-column-mode 1)
@@ -93,6 +89,8 @@
   (defun my/org-present-end ()
     (kill-local-variable 'face-remapping-alist)
     (kill-local-variable 'header-line-format)
+    (face-remap-reset-base 'header-line)
+    (face-remap-reset-base 'org-link)
     (visual-fill-column-mode 0)
     (visual-line-mode 0)
     (kill-local-variable 'mode-line-format))

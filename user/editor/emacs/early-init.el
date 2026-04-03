@@ -12,7 +12,3 @@
 (setq inhibit-startup-screen t)
 (setq frame-resize-pixelwise t)
 (setq frame-inhibit-implied-resize t)
- 
-(add-to-list 'default-frame-alist '(background-color . "#C0C0C0"))
-(add-to-list 'default-frame-alist '(foreground-color . "#000000"))
-(add-to-list 'default-frame-alist '(cursor-color . "#000000"))

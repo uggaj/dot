@@ -79,7 +79,7 @@ static const char *dmenucmd[] = {
     "-sb", col_blue,  "-sf", col_white,
     NULL
 };
-static const char *termcmd[]   = { "ghostty", NULL };
+static const char *termcmd[]   = { "kitty", NULL };
 static const char *flameshot[] = { "flameshot", "gui", NULL };
 static const char *br_up[]     = { "brightnessctl", "set", "+5%", NULL };
 static const char *br_down[]   = { "brightnessctl", "set", "5%-", NULL };
