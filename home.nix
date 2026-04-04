@@ -35,6 +35,7 @@
     fd
     flameshot
     fzf
+    helix
     ncdu
     nixd
     nixfmt
