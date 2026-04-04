@@ -8,7 +8,6 @@
     ./user/terminal/kitty.nix
     ./user/terminal/fastfetch.nix
     ./user/suckless/suckless.nix
-    ./user/editor/emacs/emacs.nix
     ./user/desktop/picom.nix
   ];
   home.username = "jaggu";
