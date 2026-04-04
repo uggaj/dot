@@ -2,21 +2,21 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 3;
+static const unsigned int borderpx  = 0;
 static const unsigned int snap      = 32;
-static const unsigned int gappih    = 20;
-static const unsigned int gappiv    = 20;
-static const unsigned int gappoh    = 20;
-static const unsigned int gappov    = 20;
+static const unsigned int gappih    = 0;
+static const unsigned int gappiv    = 0;
+static const unsigned int gappoh    = 0;
+static const unsigned int gappov    = 0;
 static const int smartgaps          = 0;
 static const int showbar            = 1;
 static const int topbar             = 1;
 
-static const unsigned int barpadv   = 10;
-static const unsigned int barpadh   = 200;
+static const unsigned int barpadv   = 0;
+static const unsigned int barpadh   = 0;
 static const unsigned int barheight = 2;
-static const unsigned int barborder = 2;
-static const unsigned int floatbar  = 1;
+static const unsigned int barborder = 0;
+static const unsigned int floatbar  = 0;
 
 static const char *fonts[]    = { "SpaceMono Nerd Font:size=10:weight=bold" };
 static const char dmenufont[] = "SpaceMono Nerd Font:size=10:weight=bold";

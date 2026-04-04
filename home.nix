@@ -27,30 +27,21 @@
   home.packages = with pkgs; [
     arandr
     aria2
-    bat
-    bash-language-server
     brave
     btop
     eza
     fd
     flameshot
     fzf
-    lua-language-server
-    luajitPackages.luacheck
     ncdu
     nixd
     nixfmt
-    nsxiv
-    pavucontrol
     qalculate-gtk
     ripgrep
-    shfmt
     statix
-    stylua
     tree-sitter
     unzip
     xclip
-    xwallpaper
     yazi
   ];
 }
