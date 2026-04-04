@@ -22,7 +22,7 @@
 
 (add-to-list 'custom-theme-load-path
              (expand-file-name "themes" user-emacs-directory))
-(load-theme 'goose t)
+(load-theme 'challenger-deep t)
 
 (setq-default mode-line-format
               '(" "

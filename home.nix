@@ -4,10 +4,12 @@
   imports = [
     ./user/shell/bash.nix
     ./user/shell/starship.nix
+    ./user/terminal/alacritty.nix
     ./user/terminal/kitty.nix
     ./user/terminal/fastfetch.nix
     ./user/suckless/suckless.nix
     ./user/editor/emacs/emacs.nix
+    ./user/desktop/picom.nix
   ];
   home.username = "jaggu";
   home.homeDirectory = "/home/jaggu";
@@ -42,6 +44,7 @@
     tree-sitter
     unzip
     xclip
+    xwallpaper
     yazi
   ];
 }
