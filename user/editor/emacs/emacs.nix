@@ -1,16 +1,29 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;
-    extraPackages = epkgs: with epkgs; [
-        use-package envrc
-        ivy counsel which-key
-        visual-fill-column org-present
-        company ws-butler hl-todo
-        treesit-auto magit
-        rust-mode nix-mode nix-ts-mode
+    extraPackages =
+      epkgs: with epkgs; [
+        use-package
+        envrc
+        ivy
+        counsel
+        which-key
+        company
+        ws-butler
+        hl-todo
+        treesit-auto
+        magit
+        rust-mode
+        nix-mode
+        nix-ts-mode
       ];
   };
   fonts.fontconfig.enable = true;

@@ -44,59 +44,10 @@
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 (use-package org
-  :demand t
   :config
-  (require 'org-faces)
-  (setq org-hide-emphasis-markers t)
+  (setq org-hide-emphasis-markers nil)
   (setq org-image-actual-width nil)
-  (setq org-startup-with-inline-images t)
-  (dolist (face '(org-block org-table org-formula org-code
-                  org-verbatim org-special-keyword
-                  org-meta-line org-checkbox))
-    (set-face-attribute face nil :inherit 'fixed-pitch)))
-
-(use-package visual-fill-column
-  :commands visual-fill-column-mode
-  :init
-  (setq visual-fill-column-width 100
-        visual-fill-column-center-text t))
-
-(use-package org-present
-  :commands org-present
-  :bind (:map org-present-mode-keymap
-              ("<right>" . org-present-next)
-              ("<left>"  . org-present-prev)
-              ("q"       . org-present-quit))
-  :config
-  (defun my/org-present-prepare-slide (_buffer-name _heading)
-    (org-overview)
-    (org-show-entry)
-    (org-show-children))
-  (defun my/org-present-start ()
-    (setq-local face-remapping-alist
-                `((default              (:height 1.8) variable-pitch)
-                  (org-document-title   (:height 2.0) org-document-title)
-                  (org-level-1          (:height 1.4) org-level-1)
-                  (org-level-2          (:height 1.2) org-level-2)))
-    (setq-local header-line-format " ")
-    (face-remap-add-relative 'header-line '(:height 5.0 :background "#CECECE" :box nil :underline nil))
-    (face-remap-add-relative 'org-link '(:underline nil))
-    (setq-local visual-fill-column-width 72)
-    (setq-local visual-fill-column-center-text t)
-    (visual-fill-column-mode 1)
-    (visual-line-mode 1)
-    (setq-local mode-line-format nil))
-  (defun my/org-present-end ()
-    (kill-local-variable 'face-remapping-alist)
-    (kill-local-variable 'header-line-format)
-    (face-remap-reset-base 'header-line)
-    (face-remap-reset-base 'org-link)
-    (visual-fill-column-mode 0)
-    (visual-line-mode 0)
-    (kill-local-variable 'mode-line-format))
-  (add-hook 'org-present-mode-hook       #'my/org-present-start)
-  (add-hook 'org-present-mode-quit-hook  #'my/org-present-end)
-  (add-hook 'org-present-after-navigate-functions #'my/org-present-prepare-slide))
+  (setq org-startup-with-inline-images t))
 
 (use-package ivy
   :init (ivy-mode 1)

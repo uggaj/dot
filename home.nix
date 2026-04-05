@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -28,7 +32,6 @@
   };
   home.packages = with pkgs; [
     arandr
-    aria2
     brave
     btop
     eza
