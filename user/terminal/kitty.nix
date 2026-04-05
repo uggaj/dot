@@ -9,7 +9,7 @@
       window_padding_width = 5;
       font_family = "SpaceMono Nerd Font Mono";
       font_size = 10;
-      background_opacity = "0.95";
+      background_opacity = "1.0";
       tab_bar_style = "powerline";
       foreground = "#cbe3e7";
       background = "#1b182c";
