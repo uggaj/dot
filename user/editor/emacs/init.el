@@ -14,15 +14,21 @@
 (setq-default tab-width 4)
 (setq inhibit-compacting-font-caches t)
 
-(set-face-attribute 'default    nil :font "SpaceMono Nerd Font" :height 100)
-(set-face-attribute 'fixed-pitch nil :font "SpaceMono Nerd Font" :height 100)
-(set-face-attribute 'variable-pitch nil :font "SpaceMono Nerd Font" :height 100)
-(add-to-list 'default-frame-alist '(font . "SpaceMono Nerd Font-10"))
+(set-face-attribute 'default    nil :font "SpaceMono Nerd Font Propo" :height 105)
+(set-face-attribute 'fixed-pitch nil :font "SpaceMono Nerd Font Propo" :height 105)
+(add-to-list 'default-frame-alist '(font . "SpaceMono Nerd Font Propo-10"))
 (setq-default line-spacing 0)
 
 (add-to-list 'custom-theme-load-path
              (expand-file-name "themes" user-emacs-directory))
 (load-theme 'challenger-deep t)
+
+(custom-set-faces
+ '(font-lock-keyword-face       ((t (:slant italic))))
+ '(font-lock-function-name-face ((t (:slant italic))))
+ '(font-lock-type-face          ((t (:slant italic))))
+ '(font-lock-comment-face       ((t (:slant italic))))
+ '(font-lock-builtin-face       ((t (:slant italic)))))
 
 (setq-default mode-line-format
               '(" "

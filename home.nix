@@ -13,7 +13,7 @@
     ./user/terminal/fastfetch.nix
     ./user/suckless/suckless.nix
     ./user/desktop/picom.nix
-    ./user/editor/emacs/emacs.nix
+    ./user/editor/zed/zed.nix
   ];
   home.username = "jaggu";
   home.homeDirectory = "/home/jaggu";

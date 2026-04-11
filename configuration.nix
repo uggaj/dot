@@ -65,6 +65,7 @@
   security.rtkit.enable = false;
   fonts = {
     packages = with pkgs; [
+      nerd-fonts.symbols-only
       nerd-fonts.space-mono
     ];
   };
