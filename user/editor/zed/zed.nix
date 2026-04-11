@@ -18,10 +18,9 @@
     ];
     userSettings = {
       theme = "Catppuccin Mocha";
-
-      buffer_font_family = "Zed Mono";
-      buffer_font_size = 14;
-      ui_font_size = 14;
+      buffer_font_family = ".ZedMono";
+      buffer_font_size = 11;
+      ui_font_size = 11;
       buffer_font_features = {
         calt = true;
       };
