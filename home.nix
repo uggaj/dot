@@ -8,7 +8,6 @@
   imports = [
     ./user/shell/bash.nix
     ./user/shell/starship.nix
-    ./user/terminal/alacritty.nix
     ./user/terminal/kitty.nix
     ./user/terminal/fastfetch.nix
     ./user/suckless/suckless.nix
