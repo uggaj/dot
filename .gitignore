@@ -5,3 +5,11 @@ user/editor/emacs/custom.el
 user/editor/emacs/themes
 user/editor/emacs/tramp
 user/editor/emacs/eshell/
+brightnessctl/
+i3blocks/
+!i3blocks/config/
+*.o
+suckless/dmenu/dmenu
+suckless/dmenu/stest
+suckless/dwm/dwm
+suckless/slstatus/slstatus

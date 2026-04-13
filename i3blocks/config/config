@@ -1,0 +1,27 @@
+[global_config]
+markup=none
+separator=true
+
+[cpu]
+command=echo "[ CPU: $(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$3+$4+$5)} END {printf "%.0f%%", usage}') ]"
+interval=1
+
+[ram]
+command=free -h | awk '/^Mem:/ {print "[ RAM: " $3 " ]"}'
+interval=1
+
+[entropy]
+command=echo "[ ENT: $(cat /proc/sys/kernel/random/entropy_avail) ]"
+interval=1
+
+[network]
+command=ip addr show enp0s20f0u1 | grep -q 'inet ' && echo "[ NET: up ]" || echo "[ NET: down] "
+interval=5
+
+[battery]
+command=echo "[ BAT: $(cat /sys/class/power_supply/BAT0/capacity)% ($(cat /sys/class/power_supply/BAT0/status)) ]"
+interval=30
+
+[datetime]
+command=date '+%F %T'
+interval=1

@@ -1,0 +1,293 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
+
+format = """
+$os\
+$battery\
+$status\
+$sudo\
+$env_var\
+$username\
+$hostname\
+$localip\
+$directory\
+$git_branch\
+$git_status\
+$git_commit\
+$git_state\
+$git_metrics\
+$c\
+$cmake\
+$cobol\
+$fortran\
+$haskell\
+$nix_shell\
+$ocaml\
+$package\
+$python\
+$rust\
+$aws\
+$azure\
+$docker_context\
+$gcloud\
+$guix_shell\
+$kubernetes\
+$time\
+$shlvl\
+$jobs\
+$shell\
+$cmd_duration\
+$line_break\
+$character
+"""
+
+palette = "dark"
+
+[palettes.dark]
+success_fg = "green"
+error_fg = "red"
+fg_1 = "brightwhite"
+bg_1 = "darkblack"
+
+[line_break]
+disabled = false
+
+[os]
+style = "fg:fg_1 bg:bg_1"
+format = "[ $symbol ]($style)"
+disabled = true
+
+[os.symbols]
+Gentoo = "GENTOO"
+NixOS = "NIXOS"
+
+[battery]
+full_symbol = "FULL: "
+charging_symbol = "CHRG: "
+discharging_symbol = "DCHRG: "
+empty_symbol = "EMPTY: "
+format = "[ $symbol$percentage ]($style)"
+disabled = false
+
+[[battery.display]]
+threshold = 100
+style = "fg:fg_1 bg:bg_1"
+
+[cmd_duration] 
+format="[ $duration ]($style)"
+style="fg:fg_1 bg:bg_1"
+
+[character]
+success_symbol = "[ ](bold green)"
+error_symbol = "[ ](bold red)"
+
+[status]
+disabled = false
+format = "[ $status:$common_meaning ](fg:error_fg bg:bg_1)"
+
+[sudo]
+symbol = "SUDO"
+style = "fg:fg_1 bg:bg_1"
+format = "[ $symbol ]($style)"
+disabled = false
+
+[env_var.STY]
+variable = "STY"
+style = "fg:fg_1 bg:bg_1"
+format = "[ SCREEN:  $env_value ]($style)"
+
+[username] 
+show_always = true
+style_user = "fg:fg_1 bg:bg_1"
+style_root = "fg:fg_1 bold bg:bg_1"
+format = "[ usr: ($user) ]($style)"
+
+[hostname]
+ssh_only = true
+style = "fg:fg_1 bg:bg_1"
+format = "[ HOST: $hostname ]($style)"
+trim_at = "-"
+
+[localip]
+ssh_only = true
+style = "fg:fg_1 bg:bg_1"
+format = "[ IP: $localipv4]($style)"
+disabled = false
+
+[directory]
+style = "fg:fg_1 bg:bg_1"
+format = "[ $read_only$path ]($style)"
+read_only = "(RO) "
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = true
+home_symbol="~"
+use_os_path_sep = true
+
+[git_branch]
+symbol = ""
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "fg:fg_1 bg:bg_1"
+format = "[ $all_status$ahead_behind ]($style)"
+conflicted = "󰞇:$count "
+ahead = "⇡:$count "
+behind = "⇣:$count "
+deleted = "󰆴:$count "
+diverged = "󱡷:$count "
+renamed = ":$count "
+stashed = ":$count "
+modified = "󰙏:$count "
+staged = ":$count "
+untracked = "󰙌:$count "
+up_to_date = "✓"
+
+[git_commit]
+disabled=false
+only_detached=false
+tag_disabled=false
+tag_symbol = " "
+# tag_max_candidates=1
+style = "fg:fg_1 bg:bg_1"
+format = "[ $hash $tag ]($style)"
+commit_hash_length = 4
+
+[git_state]
+disabled=false
+style = "fg:fg_1 bg:bg_1"
+format = ' \([$state( $progress_current/$progress_total)]($style)\) '
+cherry_pick = "[PICKING]"
+rebase = "[REBASING]"
+merge = "[MERGING]"
+bisect = "[BISECTING]"
+am = "[AM]"
+am_or_rebase = "[AM/REBASE]"
+revert = "[REVERTING]"
+#progress_divider = ' of '
+
+[git_metrics]
+added_style = "fg:fg_1 bg:bg_1"
+deleted_style = "fg:fg_1 bg:bg_1"
+format = "([+$added ]($added_style))([-$deleted ]($deleted_style))"
+disabled = false
+
+[c]
+symbol = "C:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $version ]($style)'
+
+[cmake]
+symbol = "CMAKE:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $version ]($style)'
+
+[cobol]
+symbol = "COBOL:"
+style = "fg:fg_1 bg:bg_1"
+format = "[ $symbol $version ]($style)"
+
+[fortran]
+symbol = "FORTRAN:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $version ]($style)'
+
+[haskell]
+symbol = "HASKELL:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $version ]($style)'
+
+[nix_shell]
+symbol = "NIX:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $version ]($style)'
+
+[ocaml]
+symbol = "OCAML:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $version ]($style)'
+
+[package]
+disabled=false
+symbol = "PKG:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $version ]($style)'
+
+[python]
+symbol = "PY:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $version ]($style)'
+
+[rust]
+symbol = "RUST:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $version ]($style)'
+
+[aws]
+symbol = "AWS:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $context $path ]($style)'
+
+[azure]
+symbol = "AZURE:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $context $path ]($style)'
+
+[docker_context]
+symbol = "DOCKER:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $context $path ]($style)'
+
+[gcloud]
+disabled = false
+symbol = "GCLOUD:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $context $path ]($style)'
+
+[guix_shell]
+symbol = "GUIX:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol $context $path ]($style)'
+disabled = false
+
+[kubernetes]
+symbol = "KUBER:"
+format = '[ $symbol $context $namespace ]($style) '
+style = "fg:fg_1 bg:bg_1"
+disabled = false
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format # %T for seconds
+style = "fg:fg_1 bg:bg_1"
+format = '[  $time ]($style)'
+
+[shlvl]
+disabled=false
+symbol=""
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol$shlvl ]($style)'
+
+[jobs]
+disabled = false
+symbol = ' '
+number_threshold = 1
+symbol_threshold = 1
+style = "fg:fg_1 bg:bg_1"
+format="[ $symbol$number ]($style)"
+
+[shell]
+disabled=false
+bash_indicator = "bash"
+elvish_indicator = "󰘧"
+unknown_indicator = " "
+style = "fg:fg_1 bg:bg_1"
+format="[ $indicator ]($style)" #space on right b/c double-width symbol
+
+[memory_usage]
+disabled=false
+symbol = "mem:"
+style = "fg:fg_1 bg:bg_1"
+format = '[ $symbol ]($style)'
