@@ -5,7 +5,7 @@ set $down j
 set $up k
 set $right l
 set $term kitty
-set $menu wmenu-run -f "SpaceMono Nerd Font Bold 10" -N 1b182c -n cbe3e7 -M 906cff -m 000000 -S 906cff -s cbe3e7
+set $menu wmenu-run -b -f "SpaceMono Nerd Font Bold 10" -N 1b182c -n cbe3e7 -M 906cff -m 000000 -S 906cff -s cbe3e7
 
 set $bg         #1b182c
 set $fg         #cbe3e7
@@ -29,7 +29,7 @@ default_floating_border pixel 2
 
 ### Wallpaper
 set $wallpapers_path $HOME/Pictures/Wallpapers
-output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
+output * bg $wallpapers_path/sin.png fill
 
 ### Window Colors
 client.focused          $accent $accent $black  $border   $accent
@@ -39,17 +39,7 @@ client.urgent           #cd3131 #cd3131 $fg     #f14c4c   #cd3131
 client.placeholder      $black  $black  $fg     $dim      $black
 
 ### Lock
-set $lockcmd swaylock --ignore-empty-password --show-failed-attempts \
-    --color 1b182c \
-    --inside-color 565575 \
-    --ring-color c991e1 \
-    --inside-clear-color 91ddff \
-    --ring-clear-color 91ddff \
-    --inside-ver-color 906cff \
-    --ring-ver-color c991e1 \
-    --inside-wrong-color cd3131 \
-    --ring-wrong-color f14c4c \
-    --text-color cbe3e7
+set $lockcmd swaylock
 
 ### Idle
 exec swayidle -w \
@@ -175,11 +165,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ### Utilities:
-# Special keys to adjust volume via PulseAudio ( changed to ALSA )
-bindsym --locked XF86AudioMute exec amixer -q set Speaker toggle
-bindsym --locked XF86AudioLowerVolume exec amixer -Mq set Speaker 5%-
-bindsym --locked XF86AudioRaiseVolume exec amixer -Mq set Speaker 5%+
-bindsym --locked XF86AudioMicMute exec amixer -q set Capture toggle
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 # Special keys to adjust brightness via brightnessctl
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
