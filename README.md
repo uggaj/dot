@@ -1,14 +1,12 @@
 ## dot
 
-![Desktop Setup (new)](assets/new.png)
-![Desktop Setup](assets/old.png)
+![Desktop](assets/desktop.png)
 
-Personal NixOS configuration and dotfiles. 
-Minimal, reproducible, and developer-focused.
+Personal configs.
 
 #### System Overview :
-**OS**: NixOS (flakes-enabled)  
-**WM**: dwm (X11)  
+**OS**: Gentoo
+**WM**: dwm (x11) and sway (wayland)
 **Shell**: Bash  
 **Term**: kitty  
 **Editor**: Who cares...

@@ -173,7 +173,8 @@ bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ tog
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 # Special key to take a screenshot with grim
-bindsym Print exec grim
+bindsym Print exec grim ~/Pictures/Screenshots/$(date +%F-%H%M%S).png
+bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%F-%H%M%S).png
 
 ### Floating rules
 for_window [window_role = "pop-up"] floating enable
