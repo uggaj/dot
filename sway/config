@@ -20,7 +20,7 @@ font SpaceMono Nerd Font Bold 10
 
 ### Gaps
 gaps inner 8
-gaps outer 10
+gaps outer 8
 smart_gaps on
 
 ### Borders
@@ -37,6 +37,26 @@ client.focused_inactive $bg     $bg     $fg     $normbord $bg
 client.unfocused        $bg     $bg     $fg     $normbord $bg
 client.urgent           #cd3131 #cd3131 $fg     #f14c4c   #cd3131
 client.placeholder      $black  $black  $fg     $dim      $black
+
+### Effects (swayfx)
+corner_radius 8
+blur enable
+blur_radius 6
+blur_passes 3
+blur_noise 0.08
+blur_brightness 1.0
+blur_contrast 1.0
+blur_saturation 1.0
+blur_xray disable
+shadows enable
+shadow_blur_radius 18
+shadow_color #100e2399
+shadow_inactive_color #100e2366
+shadow_offset -8 -8
+default_dim_inactive 0.12
+dim_inactive_colors.unfocused #00000000
+dim_inactive_colors.urgent #22000055
+titlebar_separator disable
 
 ### Lock
 set $lockcmd swaylock
@@ -192,6 +212,8 @@ for_window [title = "Administrator privileges required"] floating enable
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
+    mode dock
+    height 28
 
     font SpaceMono Nerd Font Bold 10
 

@@ -1,0 +1,87 @@
+[global]
+
+### Geometry ###
+monitor = 0
+follow = mouse
+width = 380
+height = 300
+origin = top-right
+offset = 18x18
+notification_limit = 8
+gap_size = 10
+
+### Progress Bars ###
+progress_bar = true
+progress_bar_height = 8
+progress_bar_frame_width = 1
+progress_bar_min_width = 150
+progress_bar_max_width = 320
+
+### Appearance ###
+transparency = 8
+corner_radius = 8
+frame_width = 2
+separator_height = 2
+padding = 14
+horizontal_padding = 14
+text_icon_padding = 10
+icon_corner_radius = 8
+
+font = SpaceMono Nerd Font 10
+line_height = 2
+markup = full
+format = "<b>%s</b>\n%b"
+
+alignment = left
+vertical_alignment = center
+word_wrap = yes
+ellipsize = middle
+ignore_newline = no
+
+### Colors ###
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#c991e1"
+separator_color = frame
+
+### Icons ###
+enable_recursive_icon_lookup = true
+icon_theme = Papirus-Dark, Papirus, Adwaita
+icon_position = left
+min_icon_size = 32
+max_icon_size = 64
+
+### Behavior ###
+sort = yes
+stack_duplicates = true
+hide_duplicate_count = false
+show_indicators = yes
+history_length = 25
+sticky_history = yes
+idle_threshold = 120
+startup_notification = false
+
+### Mouse ###
+mouse_left_click = close_current
+mouse_middle_click = do_action
+mouse_right_click = close_all
+
+### Urgency Levels ###
+
+[urgency_low]
+timeout = 4
+background = "#1e1e2e"
+foreground = "#bac2de"
+frame_color = "#c991e1"
+
+[urgency_normal]
+timeout = 7
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#c991e1"
+
+[urgency_critical]
+timeout = 0
+background = "#1e1e2e"
+foreground = "#f38ba8"
+frame_color = "#c991e1"
