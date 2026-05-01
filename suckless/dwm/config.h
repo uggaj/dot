@@ -133,7 +133,7 @@ static const Key keys[] = {
     { 0, XF86XK_AudioMute,         spawn, {.v = mutevol } },
     { 0, XF86XK_MonBrightnessUp,   spawn, {.v = br_up } },
     { 0, XF86XK_MonBrightnessDown, spawn, {.v = br_down } },
-    { 0, XK_Print, spawn, SHCMD("maim -s ~/Pictures/Screenshots/$(date +%F-%H%M%S).png") },
+    { 0, XK_Print, spawn, SHCMD("FILE=$HOME/Pictures/Screenshots/$(date +%F-%H%M%S).png; maim -s \"$FILE\" && notify-send -u low -i camera-photo 'Screenshot Taken' \"$FILE\"") },
     TAGKEYS(XK_1, 0)
     TAGKEYS(XK_2, 1)
     TAGKEYS(XK_3, 2)
