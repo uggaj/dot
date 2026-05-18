@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+export PATH="/home/jaggu/.local/bin:/usr/bin:/usr/local/bin:$PATH"
+
+APP=$(find /usr/share/applications ~/.local/share/applications \
+    -name "*.desktop" 2>/dev/null \
+    | sed 's#.*/##; s#\.desktop##' \
+    | sort -u \
+    | fzf --prompt="Launch: " --border --reverse)
+
+[ -z "$APP" ] && exit 0
+
+LOGDIR="$HOME/.local/share/app-logs"
+mkdir -p "$LOGDIR"
+LOGFILE="$LOGDIR/${APP}-$(date +%F_%H%M%S).log"
+
+setsid gtk-launch "$APP" >> "$LOGFILE" 2>&1 < /dev/null &
+disown $!
+sleep 0.05

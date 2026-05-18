@@ -6,7 +6,7 @@ Personal configs.
 
 #### System Overview :
 **OS**: Gentoo  
-**WM**: dwm (x11) and sway (wayland)  
+**WM**: Niri (wayland)  
 **Shell**: Bash  
 **Term**: kitty  
 **Editor**: Who cares...

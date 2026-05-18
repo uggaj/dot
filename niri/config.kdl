@@ -21,8 +21,8 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-/-output "eDP-1" {
-    mode "1920x1200@60.000"
+output "eDP-1" {
+    mode "1920x1200@60.001"
     scale 1.0
     transform "normal"
 }
@@ -65,7 +65,12 @@ layout {
 prefer-no-csd
 
 cursor {
+    xcursor-theme "Adwaita"
     xcursor-size 16
+}
+
+hotkey-overlay {
+    skip-at-startup
 }
 
 animations {
