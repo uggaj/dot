@@ -28,7 +28,7 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 10
+    gaps 0
 
     center-focused-column "never"
 
@@ -41,24 +41,24 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 2
-	active-color "#c991e1"
-        inactive-color "#565575"
+        width 1
+        active-color   "#bd93f9"
+        inactive-color "#44475a"
     }
 
     border {
         width 1
-        active-color "#906cff"
-        inactive-color "#565575"
-        urgent-color "#9b0000"
+        active-color   "#ff79c6"
+        inactive-color "#44475a"
+        urgent-color   "#ff5555"
     }
 
     shadow {
-    	on
-   	offset x=8 y=8
-   	softness 1
-   	spread -1
-   	color "#100e23cc"
+		off
+		offset x=8 y=8
+		softness 1
+		spread -1
+		color "#282a36cc"
     }
 }
 
@@ -109,8 +109,6 @@ animations {
 
 spawn-sh-at-startup "swaybg -m fill -i /home/jaggu/Pictures/Wallpapers/sin.png"
 
-spawn-at-startup "waybar"
-
 spawn-at-startup "dunst"
 
 binds {
@@ -121,9 +119,7 @@ binds {
 
     Mod+P { spawn "kitty" "--class" "launcher" "-e" "launcher"; }
 
-    Print {
-        spawn-sh "FILE=$HOME/Pictures/Screenshots/$(date +%F-%H%M%S).png; mkdir -p $HOME/Pictures/Screenshots; grim -g \"$(slurp)\" \"$FILE\" && dunstify -u low 'Screenshot' \"$FILE\"";
-    }
+    Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print  { screenshot-window; }
 
@@ -204,7 +200,7 @@ binds {
 }
 
 window-rule {
-    geometry-corner-radius 5
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
