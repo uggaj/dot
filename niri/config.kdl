@@ -111,6 +111,10 @@ spawn-sh-at-startup "swaybg -m fill -i /home/jaggu/Pictures/Wallpapers/sin.png"
 
 spawn-at-startup "dunst"
 
+spawn-at-startup "pipewire"
+
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
+
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
@@ -127,8 +131,8 @@ binds {
     XF86AudioLowerVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
     XF86AudioMute        { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
 
-    XF86MonBrightnessUp { spawn-sh "/home/jaggu/.local/bin/brightnessctl set +5%"; }
-    XF86MonBrightnessDown { spawn-sh "/home/jaggu/.local/bin/brightnessctl set 5%-"; }
+    XF86MonBrightnessUp { spawn-sh "brightnessctl set +5%"; }
+    XF86MonBrightnessDown { spawn-sh "brightnessctl set 5%-"; }
 
     Mod+H { focus-column-left; }
     Mod+L { focus-column-right; }
@@ -223,6 +227,13 @@ window-rule {
 
 window-rule {
     match app-id="xdg-desktop-portal-gtk"
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 600; }
+}
+
+window-rule {
+    match app-id="Nautilus"
     open-floating true
     default-column-width { fixed 800; }
     default-window-height { fixed 600; }
