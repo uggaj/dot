@@ -1,9 +1,0 @@
-archive/
-brightnessctl/
-i3blocks/
-!i3blocks/config/
-*.o
-suckless/dmenu/dmenu
-suckless/dmenu/stest
-suckless/dwm/dwm
-suckless/slstatus/slstatus

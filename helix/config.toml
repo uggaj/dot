@@ -1,0 +1,86 @@
+theme = "dracula"
+
+[editor]
+mouse = true
+line-number = "relative"
+cursorline = true
+cursorcolumn = true
+auto-completion = true
+path-completion = true
+auto-format = true
+true-color = true
+bufferline = "always"
+color-modes = true
+popup-border = "all"
+end-of-line-diagnostics = "hint" 
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "file-name",
+  "file-modification-indicator",
+]
+center = [
+  "version-control",
+  "diagnostics",
+  "workspace-diagnostics",
+]
+right = [
+  "selections",
+  "register",
+  "position",
+  "total-line-numbers",
+  "file-encoding",
+  "file-line-ending",
+  "file-indent-style",
+  "file-type",
+]
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "S"
+diagnostics = ["warning", "error"]
+workspace-diagnostics = ["warning", "error"]
+
+[editor.lsp]
+enable = true
+display-messages = true
+display-progress-messages = true
+auto-signature-help = true
+display-inlay-hints = true
+display-color-swatches = true
+display-signature-help-docs = true
+snippets = true
+goto-reference-include-declaration = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.file-picker]
+hidden = true
+
+[editor.indent-guides]
+render = true
+character = "┊"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "error"
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25
+max-indent-retain = 0
+wrap-indicator = "↪"
+
+[editor.whitespace]
+render = "none"
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+tabpad = "·"
