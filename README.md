@@ -2,4 +2,4 @@
 
 ![Desktop](assets/desktop.png)
 
-Personal configs.
+Personal configs
