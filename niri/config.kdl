@@ -60,6 +60,14 @@ layout {
 		spread -1
 		color "#000000"
     }
+
+    background-color "transparent"
+}
+
+overview {
+    workspace-shadow {
+        off
+    }
 }
 
 prefer-no-csd
@@ -124,7 +132,7 @@ animations {
     }
 }
 
-spawn-sh-at-startup "swaybg -m fill -i /home/jaggu/Pictures/Wallpapers/smoke.png"
+spawn-sh-at-startup "swaybg -m fill -i /home/jaggu/Pictures/Wallpapers/sin.png"
 
 spawn-at-startup "pipewire"
 
@@ -228,7 +236,7 @@ window-rule {
 
 window-rule {
     match is-focused=false
-    opacity 0.88
+    opacity 0.90
 }
 
 window-rule {
@@ -262,4 +270,24 @@ window-rule {
     open-floating true
     default-column-width { fixed 1000; }
     default-window-height { fixed 600; }
+}
+
+layer-rule {
+    match namespace="^notifications$"
+    opacity 0.80
+    shadow {
+        on
+        offset x=8 y=8
+        softness 0
+        spread -1
+        color "#000000"
+	}
+	background-effect {
+	    blur true
+	}
+}
+
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
 }

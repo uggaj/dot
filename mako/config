@@ -1,24 +1,22 @@
-background-color=#282a36dd
+font=SpaceMono Nerd Font 10
+width=300
+height=100
+margin=0
+padding=12
+default-timeout=5000
+background-color=#282a36ff
 text-color=#f8f8f2
 border-color=#bd93f9
 border-size=1
 border-radius=0
-font=SpaceMono Nerd Font 10
-width=300
-height=100
-margin=10
-padding=12
-default-timeout=5000
 
 [urgency=low]
-background-color=#282a36cc
 border-color=#6272a4
 
 [urgency=normal]
-background-color=#282a36dd
 border-color=#bd93f9
 
 [urgency=critical]
-background-color=#ff5555dd
+background-color=#ff5555ff
 border-color=#ff5555
 text-color=#f8f8f2
