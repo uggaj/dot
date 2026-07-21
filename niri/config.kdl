@@ -134,7 +134,7 @@ animations {
 
 spawn-sh-at-startup "swaybg -m fill -i /home/jaggu/Pictures/Wallpapers/sin.png"
 
-spawn-at-startup "pipewire"
+spawn-at-startup "gentoo-pipewire-launcher"
 
 spawn-at-startup "mako"
 
@@ -144,7 +144,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: Kitty" { spawn "kitty"; }
-    Mod+B hotkey-overlay-title="Open a Browser: Firefox" { spawn "firefox"; }
+    Mod+B hotkey-overlay-title="Open a Browser: Brave" { spawn "brave-browser-stable"; }
     Mod+D hotkey-overlay-title="Open a File Browser: Nautilus" { spawn "nautilus"; }
 
     Mod+P { spawn "kitty" "--class" "launcher" "-e" "launcher"; }
