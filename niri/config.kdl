@@ -144,7 +144,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: Kitty" { spawn "kitty"; }
-    Mod+B hotkey-overlay-title="Open a Browser: Brave" { spawn "brave-browser-stable"; }
+    Mod+B hotkey-overlay-title="Open a Browser: Firefox" { spawn "firefox-bin"; }
     Mod+D hotkey-overlay-title="Open a File Browser: Nautilus" { spawn "nautilus"; }
 
     Mod+P { spawn "kitty" "--class" "launcher" "-e" "launcher"; }

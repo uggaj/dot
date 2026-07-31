@@ -1,0 +1,2 @@
+app-emulation/qemu aio bpf capstone curl doc fdt filecaps gnutls gtk io-uring jpeg opengl oss pin-upstream-blobs pipewire plugins png python seccomp slirp spice udev usb usbredir vhost-net verify-sig virgil virtfs vnc wayland xattr xdp X zstd
+app-emulation/qemu QEMU_SOFTMMU_TARGETS: x86_64 arm aarch64 riscv64 riscv32 QEMU_USER_TARGETS: x86_64 arm aarch64 riscv64 riscv32
