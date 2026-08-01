@@ -1,0 +1,2 @@
+app-emulation/virt-manager gui policykit verify-sig
+net-misc/spice-gtk usbredir

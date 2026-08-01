@@ -1,0 +1,4 @@
+app-emulation/libvirt caps libvirtd udev virtiofsd policykit lvm verify-sig pcap virt-network numa fuse macvtap vepa qemu parted bash-completion
+sys-block/parted device-mapper
+net-dns/dnsmasq dhcp ipv6 script
+net-libs/gnutls pkcs11 tools

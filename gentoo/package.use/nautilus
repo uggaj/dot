@@ -1,0 +1,4 @@
+dev-libs/libportal gtk
+app-text/poppler cairo
+media-libs/vulkan-loader X
+app-crypt/gcr gtk

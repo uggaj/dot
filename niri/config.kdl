@@ -132,13 +132,9 @@ animations {
     }
 }
 
-spawn-sh-at-startup "swaybg -m fill -i /home/jaggu/Pictures/Wallpapers/sin.png"
-
-spawn-at-startup "gentoo-pipewire-launcher"
-
 spawn-at-startup "mako"
 
-spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
+spawn-at-startup "awww-daemon"
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
@@ -288,6 +284,6 @@ layer-rule {
 }
 
 layer-rule {
-    match namespace="^wallpaper$"
+    match namespace="awww-daemon"
     place-within-backdrop true
 }

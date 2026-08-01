@@ -1,1 +1,1 @@
-sys-kernel/dracut dracut-cpio
+sys-kernel/dracut dracut-cpio systemd

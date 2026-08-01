@@ -1,6 +1,0 @@
-app-text/xmlto text
-media-libs/freetype harfbuzz
-media-libs/libglvnd X
-media-libs/mesa X
-x11-libs/cairo X
-x11-libs/gtk+ X

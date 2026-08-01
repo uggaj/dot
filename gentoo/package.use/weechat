@@ -1,1 +1,0 @@
-net-irc/weechat alias buflist charset exec fifo fset irc logger python scripts spell trigger typing xfer zstd
