@@ -28,7 +28,7 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 10
+    gaps 15
 
     center-focused-column "never"
 
@@ -41,24 +41,30 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
+        off
         width 1
         active-color   "#bd93f9"
         inactive-color "#44475a"
     }
 
     border {
-        width 1
-        active-color   "#ff79c6"
+        on
+        width 3
+        active-color   "#c0c0c0"
         inactive-color "#44475a"
-        urgent-color   "#ff5555"
     }
 
     shadow {
 		on
-		offset x=8 y=8
-		softness 0
-		spread -1
+		offset x=4 y=4
+		softness 12
+		spread 4
 		color "#000000"
+    }
+
+    tab-indicator {
+        on
+        place-within-column
     }
 
     background-color "transparent"
@@ -70,10 +76,10 @@ overview {
     }
 }
 
-prefer-no-csd
+// prefer-no-csd
 
 cursor {
-    xcursor-theme "Adwaita"
+    xcursor-theme "Chicago95_Cursor_Black"
     xcursor-size 16
 }
 
@@ -136,12 +142,14 @@ spawn-at-startup "mako"
 
 spawn-at-startup "awww-daemon"
 
+spawn-at-startup "thunar" "--daemon"
+
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: Kitty" { spawn "kitty"; }
-    Mod+B hotkey-overlay-title="Open a Browser: Firefox" { spawn "firefox-bin"; }
-    Mod+D hotkey-overlay-title="Open a File Browser: Nautilus" { spawn "nautilus"; }
+    Mod+B hotkey-overlay-title="Open a Browser: Brave" { spawn "brave-browser-stable"; }
+    Mod+D hotkey-overlay-title="Open a File Browser: Thunar" { spawn "thunar"; }
 
     Mod+P { spawn "kitty" "--class" "launcher" "-e" "launcher"; }
 
@@ -236,14 +244,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id="kitty"
-    opacity 0.80
-    background-effect {
-        blur true
-    }
-}
-
-window-rule {
     match app-id="^launcher$"
     open-floating true
     default-column-width { fixed 400; }
@@ -262,9 +262,9 @@ window-rule {
 }
 
 window-rule {
-    match app-id="Nautilus"
+    match app-id="thunar"
     open-floating true
-    default-column-width { fixed 1000; }
+    default-column-width { fixed 800; }
     default-window-height { fixed 600; }
 }
 
@@ -277,9 +277,6 @@ layer-rule {
         softness 0
         spread -1
         color "#000000"
-	}
-	background-effect {
-	    blur true
 	}
 }
 

@@ -1,0 +1,11 @@
+xfce-base/thunar trash-panel-plugin introspection libnotify libcanberra policykit udisks
+gnome-base/gvfs udisks
+dev-libs/libdbusmenu gtk3
+xfce-base/tumbler jpeg ffmpeg
+media-video/ffmpegthumbnailer jpeg png gtk
+xfce-extra/thunar-vcs-plugin git
+xfce-base/tumbler ffmpeg jpeg curl -epub gstreamer -odf pdf -raw
+xfce-base/thunar-volman libnotify
+xfce-extra/thunar-archive-plugin
+xfce-extra/thunar-shares-plugin
+xfce-extra/thunar-media-tags-plugin
