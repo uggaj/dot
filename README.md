@@ -4,4 +4,4 @@
 
 Personal configs
 
-Thanks to [grassmunk](https://github.com/grassmunk) for the fantastic [Chicago95](https://github.com/grassmunk/Chicago95) theme.
+Thanks to [grassmunk](https://github.com/grassmunk) for the fantastic [Chicago95](https://github.com/grassmunk/Chicago95) theme

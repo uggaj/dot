@@ -239,6 +239,10 @@ window-rule {
 }
 
 window-rule {
+    draw-border-with-background false
+}
+
+window-rule {
     match is-focused=false
     opacity 0.90
 }
@@ -248,7 +252,6 @@ window-rule {
     open-floating true
     default-column-width { fixed 400; }
     default-window-height { fixed 200; }
-    opacity 0.80
     background-effect {
         blur true
     }
