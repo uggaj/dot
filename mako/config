@@ -7,6 +7,5 @@ padding=12
 default-timeout=5000
 background-color=#282a36ff
 text-color=#f8f8f2
-border-color=#c0c0c0
-border-size=3
+border-size=0
 border-radius=0
