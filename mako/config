@@ -1,11 +1,26 @@
-font=SpaceMono Nerd Font 10
-width=300
-height=100
-margin=0
-outer-margin=10
-padding=12
-default-timeout=5000
-background-color=#282a36ff
-text-color=#f8f8f2
-border-size=0
+layer=overlay
+anchor=top-right
+margin=8
+padding=8
+border-size=2
 border-radius=0
+width=300
+default-timeout=5000
+sort=-time
+
+font=SpaceMono Nerd Font 10
+
+background-color=#285577
+text-color=#ffffff
+border-color=#4c7899
+
+[urgency=low]
+background-color=#222222
+text-color=#888888
+border-color=#333333
+
+[urgency=critical]
+background-color=#900000
+text-color=#ffffff
+border-color=#2f343a
+default-timeout=0
